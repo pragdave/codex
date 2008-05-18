@@ -1,0 +1,80 @@
+h1. An Example
+
+This comes from the "Advanced Ruby Course":http://pragmaticstudio.com/ruby/ 
+
+h1. Continuation
+
+<div style="width: 50%; float: right">
+:code code/control/basic_continuation.rb[class=code-normal]
+</div>
+
+<div style="width: 50%">
+  
+* Construct using @callcc@
+** pass it a block
+** block receives @Continuation@ object
+** invoke that object's @call@ method, and control passes to the end of that block
+
+</div>
+
+
+h1. Continuations Are Closures
+
+:code code/control/closure_continuation.rb
+
+h1. But...
+
+:code code/control/closure_continuation_2.rb
+
+h1. But...
+
+<div>
+:code code/control/closure_continuation_2.rb
+
+<div style="position: relative; left: 60%; top: -3em; font-size: 400%; color: #6b6">Why?</div>
+</div>
+
+
+
+h1. Implementing throw...catch 
+
+Let's try to implement throw and catch so that the following works as expected:
+
+:code code/control/cc_throw_catch.rb[body]
+
+h1. Implementing throw...catch
+
+* We need a thread-local stack of all current catch blocks
+
+* When we see a @catch@, we store the symbol and a continuation for the block on the stack. If that continuation gets called, execution resumes after the block (which is what @catch@ does)
+
+* When we see a @throw@ we traverse it looking for the entry
+with the corresponding system.
+
+* When we find that entry, we call the corresponding continuation
+
+&nbsp;
+
+bq{font-size="50%"}. This implementation is based on code from Jim Weirich
+
+h1. Catch and Throw
+
+:code code/control/cc_throw_catch.rb[CC class=code-tiny]
+
+h1. And the stack
+
+:code code/control/cc_throw_catch.rb[stack class=code-tiny]
+
+h1. Continuations.
+
+* Can't invoke across threads
+
+* Can carry stale state around with them
+
+* Can use up a lot of memory
+
+* Are not fun to debug
+
+But...
+
+* They'll impress your friends

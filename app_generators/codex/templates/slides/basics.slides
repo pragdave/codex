@@ -1,0 +1,37 @@
+h1. The Basics
+
+h1. Slides and Code
+
+* Slides are created using "Textile markup":http://www.textism.com/tools/textile/
+* Code is written as normal source files
+* Slides can embed parts of the source files
+* It's all processed into an HTML-based presentation
+  
+h1. Presentation Metadata
+
+* Required file @slides/metadata.yml@
+
+:code slides/metadata.yml
+
+h1. Where Stuff Goes
+
+* Create your slides in @slides/xxx.slides@
+* Write code under @code/xxx@
+* Build the files @html/xxx.html@ by running @Rake@
+
+
+h1. @.slides@ files
+
+* Each @.slides@ file is a separate chunk of the presentation
+* The first @h1.@ heading is the banner page for that chunk
+* Each subsequent @h1.@ starts a new slide
+
+
+h1. Table of Contents
+
+* You can divide your material into segments, each in a separate @xxx.slides@ file
+* Then create @slides/table_of_contents.slides@, eg:
+
+:code slides/table_of_contents.slides[class=code-small]
+
+

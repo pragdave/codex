@@ -1,0 +1,80 @@
+h1. Including Code in Slides
+
+h1. Including Code in Slides
+
+* Write code under @code/@
+* Include it in your slides using @:code@ directives
+
+:inlinecode
+:code code/myfile.rb
+:endinlinecode
+
+* The entire contents of @code/myfile.rb@ will be included in the slide
+
+h1. Including Parts of a Source File
+
+* In the source file, use comments containing @START:sometag@ and @END:sometag@        
+
+:inlinecode
+class SomeClass
+#START:useful-method
+  def my_method
+    puts "hello world"
+  end
+#END:useful-method
+end
+:endinlinecode
+
+* In the slide, reference the tag in square brackets after the file name
+
+:inlinecode
+:code code/myfile.rb[useful-method]
+:endinlinecode   
+
+h1. Merge Multiple Fragments
+
+:inlinecode
+#START:constructor
+class SomeClass
+
+  def initialize
+    # ...
+  end
+#END:constructor
+     
+  def other_methods...
+  end
+#START:constructor
+end
+#END:constructor
+:endinlinecode
+
+
+h1. Override Code Language and/or CSS Class
+
+:inlinecode
+:code code/file.xxx[section lang=name class=name]
+:endinlinecode
+       
+* can appear in any order
+* @lang=@<em>anything supported by SyntaxHighlighter</em> 
+** look in @dp.SyntaxHighlighter/Scripts@)
+* @class=code-large | code-normal | code-small | code-tiny | code-supertiny@
+                                                                                  
+h1. Embedding Code Inline
+
+:inlinecode
+ :inlinecode
+ code that
+ goes inline in slides
+ :endinlinecode
+:endinlinecode 
+
+* @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@     
+
+:inlinecode
+ :inlinecode lang=ruby
+    puts "Hello World!"
+ :endinlinecode
+:endinlinecode 
+
