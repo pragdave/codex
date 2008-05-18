@@ -1,48 +1,31 @@
-= codex
+= Codex
 
-* FIX (url)
+http://github.com/pragdave/codex
 
-== DESCRIPTION:
+== Description
 
-FIX (describe your package)
+This is a remarkably trivial package that makes simply HTML-based presentations from
+a set up source files written using Textile. It's designed to help when creating
+slides that contain lots of code, as it allows code to be embedded from external source files. 
+This means that the code that you embed can come from running (and tested) programs.
 
-== FEATURES/PROBLEMS:
+The code in the resulting slides is syntax highlighted, and is hyperlinked to the original
+source file, allowing that file to be brought up in Textmate.
 
-* FIX (list of features or problems)
+== Requirements
 
-== SYNOPSIS:
+* make sure you have Ruby 1.8.6 installed and RubyGems
 
-  FIX (code sample of usage)
+== Installation
 
-== REQUIREMENTS:
+		gem install codex
 
-* FIX (list of requirements)
+== Usage
 
-== INSTALL:
+* type 'rake all' in the same directory as this README file
+* open html/all.html
 
-* FIX (sudo gem install, anything else)
+== License
 
-== LICENSE:
+See the file LICENSE.txt for details on how this all may be used.
 
-(The MIT License)
-
-Copyright (c) 2008 FIX
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
