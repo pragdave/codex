@@ -20,9 +20,9 @@ desc "Build the HTML slides from all the files slides/*.slides files"
 task :default => OUTPUT
 
 desc "Build all slides based on the contents of slides/table_of_contents.slides"
-task :all => 'html/all.html'
+task :all => [ 'tmp/', 'html/all.html', :remove_tmp ]
 
-task 'html/all.html' => 'tmp/almost_all.html' do
+task 'html/all.html' => 'tmp/almost_all.html' do 
   sh "ruby bin/postprocess_all.rb tmp/almost_all.html >html/all.html"
 end
 
@@ -34,9 +34,16 @@ task 'tmp/almost_all.slides' => OUTPUT do
   sh "ruby bin/build_all.rb #{METADATA} slides/table_of_contents.slides tmp/almost_all.slides"
 end
 
+file "tmp/" do
+  mkdir "tmp"
+end
+
+task :remove_tmp do
+  FileUtils.rm_rf("tmp") 
+end
+                       
 desc "Remove all work products—slides and temporary files"
-task :clean do 
+task :clean => :remove_tmp do 
   FileUtils.rm OUTPUT, :force => true
   FileUtils.rm "html/all.html", :force => true
-  FileUtils.rm FileList["tmp/*"], :force => true
 end
