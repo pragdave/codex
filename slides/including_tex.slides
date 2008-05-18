@@ -1,0 +1,37 @@
+h1. Including TeX math formulas
+
+
+
+h1. Including TeX math formulas
+
+Everything line between :inlinetex and :endlinetex is treated as a TeX math formula
+
+:inlinecode lang=tex
+:inlinetex
+\alpha\beta\gamma
+:endinlinetex
+:endinlinecode
+
+*Result:*
+
+:inlinetex
+\alpha\beta\gamma
+:endinlinetex
+
+h1. Ritex and WebTex
+
+WebTeX is an adapation of the TeX math syntax which is designed for web page display.
+
+Ritex is used to generate MathML from from WebTeX.
+
+Ressources:
+* "The WebTeX documentation":http://stuff.mit.edu/afs/athena/software/webeq/currenthome/docs/webtex/toc.html
+* "The Ritex documentation":http://ritex.rubyforge.org/
+
+h1. Requirements
+
+The ritex gem. Just do:
+
+:inlinecode lang=bash
+gem install ritex
+:endinlinecode
