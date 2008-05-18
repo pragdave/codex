@@ -1,4 +1,5 @@
 require 'redcloth'
+require 'ritex'
 
 class Content
   
@@ -61,6 +62,7 @@ class Content
   def to_html
     textile = preprocess_inlinecode(@original)
     textile = preprocess_code(textile)
+    textile = preprocess_inlinetex(textile)
     content = split_into_slides(textile)
     html = RedCloth.new(content).to_html
     remove_code_escaping_from(html)
@@ -104,6 +106,34 @@ class Content
     end
                      
     result.join("\n")
+  end
+  
+  def preprocess_inlinetex(text)
+    state = :copying
+    inline_tex = []
+    result = []
+    parser = Ritex::Parser.new
+    
+	  text.split(/\n/).each do |line|
+	    case state
+	    when :copying
+	      if line =~ /^:inlinetex/
+	        inline_tex = []
+	        state = :incode
+	      else
+	        result << line
+	      end
+	    when :incode
+	      if line =~ /^:endinlinetex/
+	        result << parser.parse(inline_tex.join("\n"))
+	        state = :copying
+	      else
+	        inline_tex << line
+	      end
+	    end
+	  end
+	  
+	  result.join("\n")
   end
   
   def split_into_slides(textile)
