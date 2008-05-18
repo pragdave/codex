@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Test.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>dp.SyntaxHighlighter Tests</title>
+<link type="text/css" rel="stylesheet" href="Styles/SyntaxHighlighter.css"></link>
+<link href="Styles/TestPages.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<h1>dp.SyntaxHighlighter 1.5.0 Tests and Samples</h1>
+<p><a href="http://code.google.com/p/syntaxhighlighter/">http://code.google.com/p/syntaxhighlighter/</a></p>
+
+<h2><!-- InstanceBeginEditable name="Title" -->C++<!-- InstanceEndEditable --></h2>
+
+<div class="layout">
+
+<div class="column1">
+	<h3>Languages:</h3>
+	<ol>
+		<li><a href="CSharp.html">C#</a></li>
+		<li><a href="CSS.html">CSS</a></li>
+		<li><a href="Cpp.html">C++</a></li>
+		<li><a href="Delphi.html">Delphi</a></li>
+		<li><a href="Java.html">Java</a></li>
+		<li><a href="JavaScript.html">JavaScript</a></li>
+		<li><a href="PHP.html">PHP</a></li>
+		<li><a href="Python.html">Python</a></li>
+		<li><a href="Ruby.html">Ruby</a></li>
+		<li><a href="SQL.html">SQL</a></li>
+		<li><a href="VB.html">Visual Basic</a></li>
+		<li><a href="XML.html">XML / HTML</a></li>
+	</ol>
+	<h3>Features:</h3>
+	<ol>
+		<li><a href="SmartTabs.html">Smart tabs</a></li>
+		<li><a href="FirstLine.html">First line</a> </li>
+		<li><a href="CollapseCode.html">Expand code</a></li>
+	    <li><a href="ShowColumns.html">Show columns</a></li>
+	    <li><a href="NoGutter.html">No gutter</a></li>
+	    <li><a href="NoControls.html">No controls</a></li>
+	</ol>
+</div>
+
+<div class="column2">
+Text body before.
+<hr/>
+<!-- InstanceBeginEditable name="Code" -->
+<pre name="code" class="c">
+#include &lt;windows.h>
+#include "winevent.hpp"
+
+#include &lt;time.h>
+#include &lt;stdio.h>
+
+int nInt = 0;
+int nStart = 0;
+int nEnd = 0;
+char buf[255];
+
+//////////////////////////////////////////////////////////////
+// Event handlers
+
+template&lt;>
+LRESULT OnMsg&lt;WM_CREATE>(HWND hWnd, WPARAM wParam, LPARAM lParam)
+{
+	strcpy(buf, "Press any key to start test");
+	return DefWindowProc(hWnd, WM_CREATE, wParam, lParam);
+}
+
+template&lt;>
+LRESULT OnMsg&lt;WM_KEYDOWN>(HWND hWnd, WPARAM wParam, LPARAM lParam)
+{
+	nInt = 0;
+	strcpy(buf, "running test, please wait ...");
+	InvalidateRect(hWnd, NULL, true);
+	SendMessage(hWnd, WM_PAINT, 0, 0);
+	nStart = GetTickCount();
+	PostMessage(hWnd, WM_TIMER, 0, 0);
+	return DefWindowProc(hWnd, WM_KEYDOWN, wParam, lParam);
+}
+
+template&lt;>
+LRESULT OnMsg&lt;WM_TIMER>(HWND hWnd, WPARAM wParam, LPARAM lParam)
+{
+	if (nInt++ < 100000) {
+		PostMessage(hWnd, WM_TIMER, 0, 0);
+	} else {
+		nEnd = GetTickCount();
+		sprintf(buf, "Time elapsed = %d msec", 
+		((nEnd - nStart) * 1000) / CLOCKS_PER_SEC);
+		InvalidateRect(hWnd, NULL, true);
+	}
+	return 0;
+}
+
+template&lt;>
+LRESULT OnMsg&lt;WM_DESTROY>(HWND hWnd, WPARAM wParam, LPARAM lParam)
+{
+	PostQuitMessage(0);
+	return 0;
+}
+
+template&lt;>
+LRESULT OnMsg&lt;WM_PAINT>(HWND hWnd, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	HDC hdc;
+	hdc = BeginPaint(hWnd, &ps);
+	TextOut(hdc, 100, 100, buf, static_cast&lt;int>(strlen(buf)));
+	EndPaint(hWnd, &ps);
+	return DefWindowProc(hWnd, WM_PAINT, wParam, lParam);
+}
+
+/****************************************************
+// Entry point for the application.
+****************************************************/
+
+int WINAPI WinMain(HINSTANCE hInstance, 
+HINSTANCE hPrevInstance, LPSTR szCmdLine, int nCmdShow)
+{
+	InitMsgHandlers&lt;NULL>();
+	
+	static char szAppName[] = "demo";
+	HWND        hwnd;
+	MSG         msg;
+	WNDCLASSEX  wndclass;
+	
+	wndclass.cbSize         = sizeof(wndclass);
+	wndclass.style          = CS_HREDRAW | CS_VREDRAW;
+	wndclass.lpfnWndProc    = WndProc;
+	wndclass.cbClsExtra     = 0;
+	wndclass.cbWndExtra     = 0;
+	wndclass.hInstance      = hInstance;
+	wndclass.hIcon          = LoadIcon(NULL, IDI_APPLICATION);
+	wndclass.hIconSm        = LoadIcon(NULL, IDI_APPLICATION);
+	wndclass.hCursor        = LoadCursor(NULL, IDC_ARROW);
+	wndclass.hbrBackground  = (HBRUSH) GetStockObject(WHITE_BRUSH);
+	wndclass.lpszClassName  = szAppName;
+	wndclass.lpszMenuName   = NULL;
+	
+	RegisterClassEx(&wndclass);
+	
+	hwnd = CreateWindow(szAppName, "Static Dispatch Demo",
+	WS_OVERLAPPEDWINDOW,
+	CW_USEDEFAULT, CW_USEDEFAULT,
+	CW_USEDEFAULT, CW_USEDEFAULT,
+	NULL, NULL, hInstance, NULL);
+	
+	ShowWindow(hwnd, nCmdShow);
+	UpdateWindow(hwnd);
+	
+	while ( GetMessage(&msg, NULL, 0, 0) ) {
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return static_cast&lt;int>(msg.wParam);
+}
+</pre>
+<!-- InstanceEndEditable -->
+<hr/>
+Text body after.
+</div>
+</div>
+
+<div class="footer">
+Copyright 2004-2007 Alex Gorbatchev.<br/>
+</div>
+
+<script class="javascript" src="Scripts/shCore.js"></script>
+<script class="javascript" src="Scripts/shBrushCSharp.js"></script>
+<script class="javascript" src="Scripts/shBrushPhp.js"></script>
+<script class="javascript" src="Scripts/shBrushJScript.js"></script>
+<script class="javascript" src="Scripts/shBrushJava.js"></script>
+<script class="javascript" src="Scripts/shBrushVb.js"></script>
+<script class="javascript" src="Scripts/shBrushSql.js"></script>
+<script class="javascript" src="Scripts/shBrushXml.js"></script>
+<script class="javascript" src="Scripts/shBrushDelphi.js"></script>
+<script class="javascript" src="Scripts/shBrushPython.js"></script>
+<script class="javascript" src="Scripts/shBrushRuby.js"></script>
+<script class="javascript" src="Scripts/shBrushCss.js"></script>
+<script class="javascript" src="Scripts/shBrushCpp.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+</body>
+<!-- InstanceEnd --></html>

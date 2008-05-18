@@ -1,0 +1,27 @@
+h1. Building and Displaying HTML Slides
+
+h1. Building HTML Slides
+
+* Given an individual section in @slides/xxx.slides@
+
+    @rake html/xxx.html@
+    
+* If you've created a @slide/table_of_contents.slides@, build the whole presentation with
+
+    @rake all@
+    
+  The output will be in @html/all.html@
+  
+h1. Running the Presentation
+
+* Simply open the appropriate HTML file
+
+* See the "S5 documentation":http://meyerweb.com/eric/tools/s5/ for details
+
+* Some hints
+** arrow keys and space bar work
+** type the slide number to jump
+** mouse over the bottom right to bring up a set of controls and a list of all available slides
+** most IR and radio clickers seem to work OK
+** resizing your browser fonts works well to make stuff fit during the presentation
+
