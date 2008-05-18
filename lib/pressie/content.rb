@@ -126,6 +126,7 @@ class Content
 	    when :incode
 	      if line =~ /^:endinlinetex/
 	        result << parser.parse(inline_tex.join("\n"))
+	        parser.flush_macros
 	        state = :copying
 	      else
 	        inline_tex << line
