@@ -1,14 +1,15 @@
 require 'codex/version'
 
-AUTHOR = 'Dr Nic Williams'  # can also be an array of Authors
-EMAIL = "drnicwilliams@gmail.com"
-DESCRIPTION = "description of gem"
+AUTHOR = 'Dave Thomas'  # can also be an array of Authors
+EMAIL = "dave@pragprog.com"
+DESCRIPTION = "Simple tool for creating source-code intensive presentations and courses"
 GEM_NAME = 'codex' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'codex' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
 EXTRA_DEPENDENCIES = [
-#  ['activesupport', '>= 1.3.1']
+ ['rake', '>= 0.8.1'],
+ ['RedCloth', '>= 3.0.4']
 ]    # An array of rubygem dependencies [name, version]
 
 @config_file = "~/.rubyforge/user-config.yml"
