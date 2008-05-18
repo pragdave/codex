@@ -1,16 +1,36 @@
 # We're passed a file containing hyperlinks to the HTML
 # (ie, table_con_contents.slides)
 # and contruct all.slides from it
+require 'yaml'
+                                      
+def usage(msg = nil)
+  STDERR.puts "#{__FILE__}  metadata contents output"
+  if msg
+    STDERR.puts
+    STDERR.puts msg
+  end
+  exit 1
+end
 
 BASE = File.join(File.dirname(__FILE__), "..")
-HEADER = %{h1. Advanced Ruby\n\nbq. Chad Fowler and Dave Thomas\n\nh1. Contents\n\n}
 
+metadata_name = ARGV.shift || usage("Missing metadata")
+contents_name = ARGV.shift || usage("Missing table of contents file name")
+op_name       = ARGV.shift || usage("Missing output file name")
+                 
+metadata = YAML.load_file(metadata_name)
 
-contents = File.readlines(ARGV[0]).grep(/^\*.*:(.*)\.html/) { File.join(BASE, "slides", "#{$1}.slides") }.map {|name| File.read(name) }
+contents = File.readlines(contents_name).
+                grep(/^\*.*:(.*)\.html/) { File.join(BASE, "slides", "#{$1}.slides") }.
+                map {|name| File.read(name) }
 
-File.open(ARGV[1], "w") do |op|
-  op.puts HEADER
-
+File.open(op_name, "w") do |op|
+  
+  op.puts "h1. #{metadata['title']}\n\n"
+  op.puts "bq. #{metadata['author']}\n\n"
+  
+  op.puts "h1. Contents\n\n"
+  
   op.puts %{<div style="font-size: 70%">\n\n}
 
   contents.each do |content|

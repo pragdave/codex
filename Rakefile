@@ -1,5 +1,6 @@
 SLIDES_DIR = 'slides'
 HTML_DIR   = 'html'
+METADATA = File.join(SLIDES_DIR, "metadata.yml")
 
 Dir.chdir(SLIDES_DIR) { SRC = FileList['*.slides']; SRC.resolve }
 
@@ -11,7 +12,7 @@ SRC.each do |file_name|
   OUTPUT << html_file
   desc "Build #{html_file} from #{slide_file}"
   file html_file => slide_file do
-    sh "ruby bin/pressie.rb #{slide_file} > #{html_file}"
+    sh "ruby bin/pressie.rb #{METADATA} #{slide_file} > #{html_file}"
   end
 end 
 
@@ -26,11 +27,11 @@ task 'html/all.html' => 'tmp/almost_all.html' do
 end
 
 task 'tmp/almost_all.html' => 'tmp/almost_all.slides' do
-  sh "ruby bin/pressie.rb tmp/almost_all.slides >tmp/almost_all.html"
+  sh "ruby bin/pressie.rb #{METADATA} tmp/almost_all.slides >tmp/almost_all.html"
 end
 
 task 'tmp/almost_all.slides' => OUTPUT do
-  sh "ruby bin/build_all.rb slides/table_of_contents.slides tmp/almost_all.slides"
+  sh "ruby bin/build_all.rb #{METADATA} slides/table_of_contents.slides tmp/almost_all.slides"
 end
 
 desc "Remove all work products—slides and temporary files"

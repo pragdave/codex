@@ -13,7 +13,8 @@ h1. Including Code in Slides
 
 h1. Including Parts of a Source File
 
-* In the source file, use comments containing @START:sometag@ and @END:sometag@
+* In the source file, use comments containing @START:sometag@ and @END:sometag@        
+
 :inlinecode
 class SomeClass
 #START:useful-method
@@ -69,4 +70,11 @@ h1. Embedding Code Inline
  :endinlinecode
 :endinlinecode 
 
-* @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@
+* @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@     
+
+:inlinecode
+ :inlinecode lang=ruby
+    puts "Hello World!"
+ :endinlinecode
+:endinlinecode 
+

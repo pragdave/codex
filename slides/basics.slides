@@ -7,6 +7,11 @@ h1. Slides and Code
 * Slides can embed parts of the source files
 * It's all processed into an HTML-based presentation
   
+h1. Presentation Metadata
+
+* Required file @slides/metadata.yml@
+
+:code slides/metadata.yml
 
 h1. Where Stuff Goes
 
