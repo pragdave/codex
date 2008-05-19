@@ -10,8 +10,9 @@ S5_HEAD = %{<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <!-- metadata -->
 <meta name="generator" content="S5" />
 <meta name="version" content="S5 1.1" />
-<meta name="presdate" content="20050728" />
+<meta name="presdate" content="&date" />
 <meta name="author" content="&author;" />
+<meta name="organization" content="&organization;" />
 <meta name="company" content="&company;" />
 <!-- configuration parameters -->
 <meta name="defaultView" content="slideshow" />
