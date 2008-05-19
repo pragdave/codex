@@ -57,6 +57,8 @@ class CodexGenerator < RubiGen::Base
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
         :shebang => options[:shebang], :collision => :force
+
+      m.readme 'readme.txt'
     end
   end
 

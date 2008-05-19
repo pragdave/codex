@@ -1,7 +1,6 @@
-require "pressie/content" 
 require 'yaml'
 
-S5_HEAD = %{<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+S5_HEAD = %{<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -64,43 +63,45 @@ S5_TAIL = %{
 }
 
 
-class Pressie
-  
-  def self.process
-    new.process
-  end
-  
-  def process    
-    metadata_name = ARGV.shift || usage("Missing metadata file name")
-    load_metadata(metadata_name)
-    input_name = ARGV.shift || usage("Missing input file name")
-    content = Content.new(File.read(input_name)) rescue usage($!.message)  
-    header = substitute_metadata_into(S5_HEAD)
-    puts header, content.to_html, S5_TAIL
-  end
-  
-  
-  private
-  
-  def usage(msg = nil)
-    STDERR.puts "pressie.rb  <metadatafile> <inputfile>"
-    if msg
-      STDERR.puts
-      STDERR.puts msg
+module Codex
+  class Pressie
+
+    def self.process
+      new.process
     end
-    exit 1
-  end                                     
-  
-  def load_metadata(file_name)
-    @metadata = YAML.load_file(file_name)
-  end          
-  
-  def substitute_metadata_into(text)
-    text = text.dup
-    %w{author company copyright title}.each do |key|
-      text.gsub!(/&#{key};/, @metadata[key]) if @metadata.has_key?(key)
+
+    def process
+      metadata_name = ARGV.shift || usage("Missing metadata file name")
+      load_metadata(metadata_name)
+      input_name = ARGV.shift || usage("Missing input file name")
+      content = Content.new(File.read(input_name)) rescue usage($!.message)
+      header = substitute_metadata_into(S5_HEAD)
+      puts header, content.to_html, S5_TAIL
     end
-    text
+
+
+    private
+
+    def usage(msg = nil)
+      STDERR.puts "pressie.rb  <metadatafile> <inputfile>"
+      if msg
+        STDERR.puts
+        STDERR.puts msg
+      end
+      exit 1
+    end
+
+    def load_metadata(file_name)
+      @metadata = YAML.load_file(file_name)
+    end
+
+    def substitute_metadata_into(text)
+      text = text.dup
+      %w{author company copyright title}.each do |key|
+        text.gsub!(/&#{key};/, @metadata[key]) if @metadata.has_key?(key)
+      end
+      text
+    end
+
   end
-      
 end
