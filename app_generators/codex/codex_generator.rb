@@ -49,6 +49,11 @@ class CodexGenerator < RubiGen::Base
         ].each do |syntax|
           m.file_copy_each "dp.SyntaxHighlighter/#{syntax}"
         end
+      ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
+        "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
+          m.file_copy_each "ui/default/#{asset}"
+        end
+
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
         :shebang => options[:shebang], :collision => :force
@@ -94,5 +99,6 @@ EOS
       dp.SyntaxHighlighter/Templates
       script
       slides
+      ui/default
     )
 end

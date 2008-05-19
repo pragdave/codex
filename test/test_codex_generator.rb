@@ -60,6 +60,10 @@ class TestCodexGenerator < Test::Unit::TestCase
       ].each do |syntax|
         assert_generated_file "dp.SyntaxHighlighter/#{syntax}"
       end
+    ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
+      "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
+        assert_generated_file "ui/default/#{asset}"
+      end
   end
 
   private
