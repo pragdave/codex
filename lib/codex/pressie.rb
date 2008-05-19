@@ -97,7 +97,7 @@ module Codex
 
     def substitute_metadata_into(text)
       text = text.dup
-      %w{author company copyright title}.each do |key|
+      %w{author company organization date copyright title}.each do |key|
         text.gsub!(/&#{key};/, @metadata[key]) if @metadata.has_key?(key)
       end
       text
