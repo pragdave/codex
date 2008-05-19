@@ -28,6 +28,7 @@ class TestCodexGenerator < Test::Unit::TestCase
   def test_generator_without_options
     run_generator('codex', [APP_ROOT], sources)
     assert_directory_exists "bin"
+    assert_directory_exists "code/control"
     assert_directory_exists "html"
     assert_directory_exists "slides"
     assert_directory_exists "dp.SyntaxHighlighter"
@@ -40,6 +41,9 @@ class TestCodexGenerator < Test::Unit::TestCase
     assert_generated_file "slides/metadata.yml"
     %w[build_all postprocess_all pressie].each do |bin|
       assert_generated_file "bin/#{bin}.rb"
+    end
+    %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|
+      assert_generated_file "code/control/#{code}.rb"
     end
     ["CollapseCode.html", "Cpp.html", "CrashTest.html", "CSharp.html", "CSS.html",
       "Delphi.html", "FirstLine.html", "Index.html", "Java.html", "JavaScript.html",

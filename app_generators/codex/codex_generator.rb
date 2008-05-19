@@ -31,6 +31,9 @@ class CodexGenerator < RubiGen::Base
       %w[build_all postprocess_all pressie].each do |bin|
         m.file_copy_each "bin/#{bin}.rb"
       end
+      %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|
+        m.file_copy_each "code/control/#{code}.rb"
+      end
       ["CollapseCode.html", "Cpp.html", "CrashTest.html", "CSharp.html", "CSS.html",
         "Delphi.html", "FirstLine.html", "Index.html", "Java.html", "JavaScript.html",
         "NoControls.html", "NoGutter.html", "PHP.html", "Python.html", "Ruby.html",
@@ -84,6 +87,7 @@ EOS
     # created so don't sweat their absence here.
     BASEDIRS = %w(
       bin
+      code/control
       html
       dp.SyntaxHighlighter/Scripts
       dp.SyntaxHighlighter/Styles
