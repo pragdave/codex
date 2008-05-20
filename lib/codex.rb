@@ -5,3 +5,4 @@ module Codex; end
 
 require 'codex/content'
 require 'codex/pressie'
+require 'codex/filter'

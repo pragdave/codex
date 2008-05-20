@@ -78,6 +78,8 @@ config/hoe.rb
 config/requirements.rb
 lib/codex.rb
 lib/codex/content.rb
+lib/codex/filter.rb
+lib/codex/ritex_filter.rb
 lib/codex/pressie.rb
 lib/codex/version.rb
 lib/stylesheets/pressie.css

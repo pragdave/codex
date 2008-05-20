@@ -101,6 +101,7 @@ EOS
       dp.SyntaxHighlighter/Templates
       script
       slides
+      filters
       ui/default
     )
 end
