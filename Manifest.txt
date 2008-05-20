@@ -58,6 +58,7 @@ app_generators/codex/templates/slides/basics.slides
 app_generators/codex/templates/slides/building.slides
 app_generators/codex/templates/slides/example.slides
 app_generators/codex/templates/slides/including_code.slides
+app_generators/codex/templates/slides/including_tex.slides
 app_generators/codex/templates/slides/metadata.yml
 app_generators/codex/templates/slides/table_of_contents.slides
 app_generators/codex/templates/ui/default/blank.gif
