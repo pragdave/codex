@@ -15,9 +15,9 @@ Everything line between :inlinetex and :endlinetex is treated as a TeX math form
 
 *Result:*
 
-:inlinetex
+:inlinewebtex
 \alpha\beta\gamma
-:endinlinetex
+:end
 
 h1. Ritex and WebTex
 
