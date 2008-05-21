@@ -1,3 +1,13 @@
+== 1.0.3 2008-05-22
+
+* Support for user defined filters
+	* The functionality is in added file lib/codex/filters/filter.rb 
+* Included WebTeX filter
+	* Added ritex >= 0.1 as dependency
+* Syntax highlighter is a filter now
+	* Syntax highlighter stuff from content.rb is now in lib/codex/filters/code_filter.rb
+* Added some slides elaborating on this to the templates
+
 == 1.0.2 2008-05-20
 
 * Add rubigen 1.3.2 to dependency list as its used for codex generator

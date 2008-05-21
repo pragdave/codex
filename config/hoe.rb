@@ -10,6 +10,7 @@ DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
 EXTRA_DEPENDENCIES = [
  ['rake', '>= 0.8.1'],
  ['RedCloth', '>= 3.0.4'],
+ ['ritex', '>= 0.1'],
  ['rubigen', '>=1.3.2']
 ]    # An array of rubygem dependencies [name, version]
 
