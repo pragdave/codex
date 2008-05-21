@@ -52,6 +52,7 @@ app_generators/codex/templates/dp.SyntaxHighlighter/Styles/TestPages.css
 app_generators/codex/templates/dp.SyntaxHighlighter/Templates/Test.dwt
 app_generators/codex/templates/dp.SyntaxHighlighter/VB.html
 app_generators/codex/templates/dp.SyntaxHighlighter/XML.html
+app_generators/codex/templates/filters/example_filter.rb
 app_generators/codex/templates/html/all.html
 app_generators/codex/templates/readme.txt
 app_generators/codex/templates/slides/basics.slides
@@ -61,6 +62,7 @@ app_generators/codex/templates/slides/including_code.slides
 app_generators/codex/templates/slides/including_tex.slides
 app_generators/codex/templates/slides/metadata.yml
 app_generators/codex/templates/slides/table_of_contents.slides
+app_generators/codex/templates/slides/user_defined.slides
 app_generators/codex/templates/ui/default/blank.gif
 app_generators/codex/templates/ui/default/bodybg.gif
 app_generators/codex/templates/ui/default/framing.css

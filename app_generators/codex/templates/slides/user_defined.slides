@@ -1,0 +1,44 @@
+h1. User-defined filters
+
+h1. User-defined filters
+
+* Allow you to create your own @filters@ and @tags@
+* They go in the filters/ directory
+* There already is an example filter there
+
+h1. Example filter
+
+<div style="width: 50%; float: right">
+
+:code filters/example_filter.rb[class=code-normal]
+
+</div>
+
+
+<div style="width: 50%">
+
+* Declare a class which inherits from @Codex::Filter@
+** Set the tag you wish to use
+** Implement @filter_inline(text,args)@ 
+** Implement @filter_single(args)@
+** You can omit filter_single if you just want it to load a file and parse it through filter_inline
+
+</div>
+
+It's _that_ simple.
+
+h1. Using your filter
+
+You can now use your tags in your slides:
+
+:inlinecode
+ :inlinetest
+  Reverse this text
+ :endinlinetest
+:endinlinecode
+
+The result is:
+
+:inlinetest
+Reverse this text
+:endinlinetest

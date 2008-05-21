@@ -13,3 +13,8 @@ h1. Creating Slideshows
 h1. An Example     
 
 * "Some Sample Slides":example.html
+
+h1. Extra filters
+
+* "The Ritex filter":including_tex.html
+* "Defining your own":user_defined.html

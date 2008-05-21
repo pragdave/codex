@@ -24,7 +24,7 @@ class CodexGenerator < RubiGen::Base
       # Create stubs
       m.template_copy_each %w[Rakefile]
       m.template_copy_each "html/all.html"
-      %w[basics building example including_code including_tex table_of_contents].each do |slide|
+      %w[basics building example including_code including_tex table_of_contents user_defined].each do |slide|
         m.file_copy_each "slides/#{slide}.slides"
       end
       m.file_copy_each "slides/metadata.yml"
@@ -53,7 +53,7 @@ class CodexGenerator < RubiGen::Base
         "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
           m.file_copy_each "ui/default/#{asset}"
         end
-
+      m.template_copy_each "filters/example_filter.rb"
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
         :shebang => options[:shebang], :collision => :force
