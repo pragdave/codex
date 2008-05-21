@@ -12,4 +12,4 @@ require 'rubygems'
   end
 end
 
-$:.unshift(File.join(File.dirname(__FILE__), %w[.. lib]))
+$:.unshift(File.join(File.dirname(__FILE__), %w[.. lib lib/filters]))

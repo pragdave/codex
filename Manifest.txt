@@ -81,9 +81,10 @@ config/requirements.rb
 lib/codex.rb
 lib/codex/content.rb
 lib/codex/filter.rb
-lib/codex/ritex_filter.rb
 lib/codex/pressie.rb
 lib/codex/version.rb
+lib/codex/filters/ritex_filter.rb
+lib/codex/filters/code_filter.rb
 lib/stylesheets/pressie.css
 lib/stylesheets/print.css
 lib/stylesheets/ruby.png

@@ -6,4 +6,7 @@ module Codex; end
 require 'codex/content'
 require 'codex/pressie'
 require 'codex/filter'
-require 'codex/ritex_filter'
+
+# Filters:
+require 'codex/filters/code_filter'
+require 'codex/filters/ritex_filter'

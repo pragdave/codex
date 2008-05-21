@@ -47,7 +47,7 @@ module Codex
             result << line
           end
         when :inside_tag
-          if line =~ /^:end/ # :endwhatever or just plain :end
+          if line =~ /^:end(inline#{tag}|#{tag})?(\s.*)?$/ # :endinlinewhatever, :endwhatever or just plain :end
             result << @filters[tag.to_sym].filter_inline(tagged_lines.join("\n"),args)
             tagged_lines = []
             state = :copying
@@ -80,7 +80,7 @@ module Codex
     
     # Does the actually work of creating matcher regular expressions
     def tag_regexp(prefix = "")
-      Regexp.new("^:#{prefix}(" + (@filters.map { |tag,filter| tag.to_s }).join('|') + ")(.*)")      
+      Regexp.new("^:#{prefix}(" + (@filters.map { |tag,filter| tag.to_s }).join('|') + ")(.*)")
     end
   end
 end
