@@ -6,11 +6,11 @@ Everything line between :inlinetex and :endlinetex is treated as a TeX math form
 
 *Example:*
 
-:inlinecode [lang=latex]
+:inlinecode
 :inlinewebtex
 \alpha\beta\gamma
 :endinlinewebtex
-:endinlinecode
+:end
 
 *Result:*
 
@@ -28,4 +28,4 @@ Ressources:
 * "The WebTeX documentation":http://stuff.mit.edu/afs/athena/software/webeq/currenthome/docs/webtex/toc.html
 * "The Ritex documentation":http://ritex.rubyforge.org/
 
-@flipside:@ MathML doesn't always display properly in browsers :-(
+The flipside is that MathML doesn't always display properly in browsers :-(

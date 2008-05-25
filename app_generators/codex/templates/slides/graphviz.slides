@@ -1,0 +1,34 @@
+h1. Graphviz plugin
+
+h1. Inline graphviz
+
+You can embed graphviz code to generate graphs
+:inlinecode
+:inlinegraphviz [engine=neato]
+graph test123 {
+	a -- b -- c;
+	a -- {x y};
+	x -- c [w=10.0];
+	x -- y [w=5.0,len=3];
+}
+:endinlinegraphviz
+:end
+
+:inlinegraphviz 
+graph test123 {
+	a -- b -- c;
+	a -- {x y};
+	x -- c [w=10.0];
+	x -- y [w=5.0,len=3];
+}
+:end
+
+h1. File based graphviz
+
+It is also possible to process graphviz from a given file:
+
+:inlinecode
+:graphviz code/graphviz/graph.dot
+:end
+
+:graphviz code/graphviz/graph.dot

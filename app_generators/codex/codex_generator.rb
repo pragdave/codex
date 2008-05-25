@@ -24,7 +24,7 @@ class CodexGenerator < RubiGen::Base
       # Create stubs
       m.template_copy_each %w[Rakefile]
       m.template_copy_each "html/all.html"
-      %w[basics building example including_code including_tex table_of_contents user_defined].each do |slide|
+      %w[basics building example including_code including_tex table_of_contents user_defined graphviz].each do |slide|
         m.file_copy_each "slides/#{slide}.slides"
       end
       m.file_copy_each "slides/metadata.yml"
@@ -34,6 +34,7 @@ class CodexGenerator < RubiGen::Base
       %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|
         m.file_copy_each "code/control/#{code}.rb"
       end
+      m.file_copy_each "code/graphviz/graph.dot"
       ["CollapseCode.html", "Cpp.html", "CrashTest.html", "CSharp.html", "CSS.html",
         "Delphi.html", "FirstLine.html", "Index.html", "Java.html", "JavaScript.html",
         "NoControls.html", "NoGutter.html", "PHP.html", "Python.html", "Ruby.html",
@@ -95,7 +96,8 @@ EOS
     BASEDIRS = %w(
       bin
       code/control
-      html
+      code/graphviz
+      html/images
       dp.SyntaxHighlighter/Scripts
       dp.SyntaxHighlighter/Styles
       dp.SyntaxHighlighter/Templates

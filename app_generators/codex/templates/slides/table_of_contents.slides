@@ -16,4 +16,5 @@ h1. An Example
 h1. Extra filters
 
 * "The Ritex filter":including_tex.html
+* "The Graphviz filter":graphviz.html
 * "Defining your own":user_defined.html

@@ -14,6 +14,7 @@ app_generators/codex/templates/code/control/basic_continuation.rb
 app_generators/codex/templates/code/control/cc_throw_catch.rb
 app_generators/codex/templates/code/control/closure_continuation.rb
 app_generators/codex/templates/code/control/closure_continuation_2.rb
+app_generators/codex/templates/code/graphviz/graph.dot
 app_generators/codex/templates/dp.SyntaxHighlighter/CSS.html
 app_generators/codex/templates/dp.SyntaxHighlighter/CSharp.html
 app_generators/codex/templates/dp.SyntaxHighlighter/CollapseCode.html
@@ -54,12 +55,14 @@ app_generators/codex/templates/dp.SyntaxHighlighter/VB.html
 app_generators/codex/templates/dp.SyntaxHighlighter/XML.html
 app_generators/codex/templates/filters/example_filter.rb
 app_generators/codex/templates/html/all.html
+app_generators/codex/templates/html/images
 app_generators/codex/templates/readme.txt
 app_generators/codex/templates/slides/basics.slides
 app_generators/codex/templates/slides/building.slides
 app_generators/codex/templates/slides/example.slides
 app_generators/codex/templates/slides/including_code.slides
 app_generators/codex/templates/slides/including_tex.slides
+app_generators/codex/templates/slides/graphviz.slides
 app_generators/codex/templates/slides/metadata.yml
 app_generators/codex/templates/slides/table_of_contents.slides
 app_generators/codex/templates/slides/user_defined.slides
@@ -85,6 +88,7 @@ lib/codex/pressie.rb
 lib/codex/version.rb
 lib/codex/filters/ritex_filter.rb
 lib/codex/filters/code_filter.rb
+lib/codex/filters/graphviz_filter.rb
 lib/stylesheets/pressie.css
 lib/stylesheets/print.css
 lib/stylesheets/ruby.png

@@ -1,5 +1,6 @@
 SLIDES_DIR = 'slides/'
 HTML_DIR   = 'html/'
+IMG_DIR    = 'html/images/'
 ALL_HTML   = File.join(HTML_DIR, "all.html")
 
 METADATA = File.join(SLIDES_DIR, "metadata.yml")
@@ -22,7 +23,7 @@ desc "Build the HTML slides from all the files slides/*.slides files"
 task :default => OUTPUT
 
 desc "Build all slides based on the contents of slides/table_of_contents.slides"
-task :all => [ 'tmp/', HTML_DIR, ALL_HTML, :remove_tmp ]
+task :all => [ 'tmp/', HTML_DIR, IMG_DIR, ALL_HTML, :remove_tmp ]
 
 task ALL_HTML => 'tmp/almost_all.html' do
   sh "ruby bin/postprocess_all.rb tmp/almost_all.html >#{ALL_HTML}"
@@ -42,6 +43,10 @@ end
 
 file "html/" do
   mkdir "html"
+end
+
+file "html/" do
+  mkdir "html/images"
 end
 
 task :remove_tmp do
