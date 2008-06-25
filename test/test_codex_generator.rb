@@ -30,15 +30,15 @@ class TestCodexGenerator < Test::Unit::TestCase
     assert_directory_exists "bin"
     assert_directory_exists "code/control"
     assert_directory_exists "html"
-    assert_directory_exists "slides"
+    assert_directory_exists "content"
     assert_directory_exists "dp.SyntaxHighlighter"
     assert_directory_exists "script"
     assert_generated_file   "Rakefile"
     assert_generated_file   "html/all.html"
     %w[basics building example including_code table_of_contents].each do |slide|
-      assert_generated_file "slides/#{slide}.slides"
+      assert_generated_file "content/#{slide}.textile"
     end
-    assert_generated_file "slides/metadata.yml"
+    assert_generated_file "content/metadata.yml"
     %w[build_all postprocess_all pressie].each do |bin|
       assert_generated_file "bin/#{bin}.rb"
     end

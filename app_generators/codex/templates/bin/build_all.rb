@@ -1,6 +1,6 @@
 # We're passed a file containing hyperlinks to the HTML
-# (ie, table_con_contents.slides)
-# and contruct all.slides from it
+# (ie, table_con_contents.textile)
+# and contruct all.textile from it
 require 'yaml'
 
 def usage(msg = nil)
@@ -21,7 +21,7 @@ op_name       = ARGV.shift || usage("Missing output file name")
 metadata = YAML.load_file(metadata_name)
 
 contents = File.readlines(contents_name).
-                grep(/^\*.*:(.*)\.html/) { File.join(BASE, "slides", "#{$1}.slides") }.
+                grep(/^\*.*:(.*)\.html/) { File.join(BASE, "content", "#{$1}.textile") }.
                 map {|name| File.read(name) }
 
 File.open(op_name, "w") do |op|

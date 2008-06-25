@@ -2,11 +2,11 @@ h1. Building and Displaying HTML Slides
 
 h1. Building HTML Slides
 
-* Given an individual section in @slides/xxx.slides@
+* Given an individual section in @content/xxx.textile@
 
     @rake html/xxx.html@
     
-* If you've created a @slide/table_of_contents.slides@, build the whole presentation with
+* If you've created a @content/table_of_contents.textile@, build the whole presentation with
 
     @rake all@
     
