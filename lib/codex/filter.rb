@@ -8,7 +8,7 @@ module Codex
     attr_accessor :tag
     def self.tag(tag)
       @tag = tag
-      (Filters.instance)[tag] = self.new
+      Filters.instance[tag] = self.new
     end
   end
 
