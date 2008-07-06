@@ -55,14 +55,13 @@ app_generators/codex/templates/dp.SyntaxHighlighter/VB.html
 app_generators/codex/templates/dp.SyntaxHighlighter/XML.html
 app_generators/codex/templates/filters/example_filter.rb
 app_generators/codex/templates/html/all.html
-app_generators/codex/templates/html/images
 app_generators/codex/templates/readme.txt
 app_generators/codex/templates/slides/basics.slides
 app_generators/codex/templates/slides/building.slides
 app_generators/codex/templates/slides/example.slides
+app_generators/codex/templates/slides/graphviz.slides
 app_generators/codex/templates/slides/including_code.slides
 app_generators/codex/templates/slides/including_tex.slides
-app_generators/codex/templates/slides/graphviz.slides
 app_generators/codex/templates/slides/metadata.yml
 app_generators/codex/templates/slides/table_of_contents.slides
 app_generators/codex/templates/slides/user_defined.slides
@@ -84,11 +83,11 @@ config/requirements.rb
 lib/codex.rb
 lib/codex/content.rb
 lib/codex/filter.rb
-lib/codex/pressie.rb
-lib/codex/version.rb
-lib/codex/filters/ritex_filter.rb
 lib/codex/filters/code_filter.rb
 lib/codex/filters/graphviz_filter.rb
+lib/codex/filters/ritex_filter.rb
+lib/codex/pressie.rb
+lib/codex/version.rb
 lib/stylesheets/pressie.css
 lib/stylesheets/print.css
 lib/stylesheets/ruby.png
@@ -101,5 +100,6 @@ tasks/environment.rake
 tasks/website.rake
 test/test_codex.rb
 test/test_codex_generator.rb
+test/test_filter.rb
 test/test_generator_helper.rb
 test/test_helper.rb
