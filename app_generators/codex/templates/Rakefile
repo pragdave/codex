@@ -1,5 +1,4 @@
-require 'rubygems'
-require 'codex'
+require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 require 'codex/rake/codextask'
 
 Codex::Rake::CodexTask.new do |c|

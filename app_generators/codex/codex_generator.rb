@@ -22,7 +22,7 @@ class CodexGenerator < RubiGen::Base
       BASEDIRS.each { |path| m.directory path }
 
       # Create stubs
-      m.template_copy_each %w[Rakefile]
+      m.template_copy_each %w[Rakefile config/boot.rb]
       m.template_copy_each "html/all.html"
       %w[basics building example including_code including_tex table_of_contents user_defined graphviz].each do |template|
         m.file_copy_each "content/#{template}.textile"
@@ -97,6 +97,7 @@ EOS
       bin
       code/control
       code/graphviz
+      config
       html/images
       dp.SyntaxHighlighter/Scripts
       dp.SyntaxHighlighter/Styles

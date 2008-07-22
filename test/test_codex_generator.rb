@@ -26,12 +26,10 @@ class TestCodexGenerator < Test::Unit::TestCase
 
   def test_generator_without_options
     generate
-    assert_directory_exists "bin"
-    assert_directory_exists "code/control"
-    assert_directory_exists "html"
-    assert_directory_exists "content"
-    assert_directory_exists "dp.SyntaxHighlighter"
-    assert_directory_exists "script"
+    %w(bin code config html content dp.SyntaxHighlighter script).each do |dir|
+      assert_directory_exists dir
+    end
+    assert_generated_file 'config/boot.rb'
     assert_generated_file   "Rakefile"
     assert_generated_file   "html/all.html"
     %w[basics building example including_code table_of_contents].each do |slide|
