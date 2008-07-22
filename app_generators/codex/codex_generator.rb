@@ -66,8 +66,8 @@ class CodexGenerator < RubiGen::Base
   protected
     def banner
       <<-EOS
-Creates a Codex presentations.
-Codex is imple tool for creating source-code intensive presentations and courses
+Creates a Codex presentation.
+Codex is simple tool for creating source-code intensive presentations and courses
 
 USAGE: #{spec.name} name
 EOS
