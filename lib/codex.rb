@@ -2,7 +2,11 @@ base_dir = File.dirname(__FILE__)
 $:.unshift(base_dir) unless
   $:.include?(base_dir) || $:.include?(File.expand_path(base_dir))
 
-module Codex; end
+module Codex
+  class << self
+    attr_accessor :root
+  end
+end
 
 require 'codex/content'
 require 'codex/pressie'

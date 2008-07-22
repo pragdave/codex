@@ -1,7 +1,6 @@
-require File.join(File.dirname(__FILE__), "test_generator_helper.rb")
+require File.expand_path(File.dirname(__FILE__) + "/test_helper.rb")
 
 class TestCodexGenerator < Test::Unit::TestCase
-  include RubiGen::GeneratorTestHelper
 
   def setup
     bare_setup
@@ -26,7 +25,7 @@ class TestCodexGenerator < Test::Unit::TestCase
   #   bare_teardown - place this in teardown method to destroy the TMP_ROOT or APP_ROOT folder after each test
 
   def test_generator_without_options
-    run_generator('codex', [APP_ROOT], sources)
+    generate
     assert_directory_exists "bin"
     assert_directory_exists "code/control"
     assert_directory_exists "html"
@@ -66,13 +65,4 @@ class TestCodexGenerator < Test::Unit::TestCase
       end
   end
 
-  private
-  def sources
-    [RubiGen::PathSource.new(:test, File.join(File.dirname(__FILE__),"..", generator_path))
-    ]
-  end
-
-  def generator_path
-    "app_generators"
-  end
 end

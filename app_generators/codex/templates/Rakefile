@@ -1,59 +1,9 @@
-CONTENT_DIR = 'content/'
-HTML_DIR   = 'html/'
-IMG_DIR    = 'html/images/'
-ALL_HTML   = File.join(HTML_DIR, "all.html")
+require 'rubygems'
+require 'codex'
+require 'codex/rake/codextask'
 
-METADATA = File.join(CONTENT_DIR, "metadata.yml")
-
-Dir.chdir(CONTENT_DIR) { SRC = FileList['*.textile']; SRC.resolve }
-
-OUTPUT = []
-
-SRC.each do |file_name|
-  content_file = File.join(CONTENT_DIR, file_name)
-  html_file = File.join(HTML_DIR, file_name.ext('.html'))
-  OUTPUT << html_file
-  desc "Build #{html_file} from #{content_file}"
-  file html_file => [HTML_DIR, content_file] do
-    sh "ruby bin/pressie.rb #{METADATA} #{content_file} > #{html_file}"
-  end
-end
-
-desc "Build the HTML output"
-task :default => OUTPUT
-
-desc "Build all based on the contents of content/table_of_contents.textile"
-task :all => [ 'tmp/', HTML_DIR, IMG_DIR, ALL_HTML, :remove_tmp ]
-
-task ALL_HTML => 'tmp/almost_all.html' do
-  sh "ruby bin/postprocess_all.rb tmp/almost_all.html >#{ALL_HTML}"
-end
-
-task 'tmp/almost_all.html' => 'tmp/almost_all.textile' do
-  sh "ruby bin/pressie.rb #{METADATA} tmp/almost_all.textile >tmp/almost_all.html"
-end
-
-task 'tmp/almost_all.textile' => OUTPUT do
-  sh "ruby bin/build_all.rb #{METADATA} content/table_of_contents.textile tmp/almost_all.textile"
-end
-
-file "tmp/" do
-  mkdir "tmp"
-end
-
-file "html/" do
-  mkdir "html"
-end
-
-file "html/" do
-  mkdir "html/images"
-end
-
-task :remove_tmp do
-  FileUtils.rm_rf("tmp")
-end
-
-desc "Remove all work products—slides and temporary files"
-task :clean => :remove_tmp do
-  FileUtils.rm_rf HTML_DIR
+Codex::Rake::CodexTask.new do |c|
+  # c.content_dir = 'content'
+  # c.output_dir  = 'html'
+  # c.metadata    = "#{c.content_dir}/metadata.yml"
 end

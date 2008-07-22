@@ -87,6 +87,7 @@ lib/codex/filters/code_filter.rb
 lib/codex/filters/graphviz_filter.rb
 lib/codex/filters/ritex_filter.rb
 lib/codex/pressie.rb
+lib/codex/rake/codextask.rb
 lib/codex/version.rb
 lib/stylesheets/pressie.css
 lib/stylesheets/print.css
@@ -98,8 +99,7 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
-test/test_codex.rb
+test/codex/rake/test_codextask.rb
 test/test_codex_generator.rb
 test/test_filter.rb
-test/test_generator_helper.rb
 test/test_helper.rb
