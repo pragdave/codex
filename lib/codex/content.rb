@@ -5,14 +5,14 @@ class Codex::Content
   END_SLIDE   = %{</div>\n}
   BETWEEN_SLIDES = END_SLIDE + "\n" + START_SLIDE
 
-  def initialize(original)
-    @original = original.sub(/__END__.*/m, '').gsub(/__SKIP__.*?__ENDSKIP__/m, '')
+  def initialize(filename)
+    @filename = filename
+    @original = File.read(@filename).sub(/__END__.*/m, '').gsub(/__SKIP__.*?__ENDSKIP__/m, '')
   end
 
   def to_html
-    textile = Codex::Filters.instance.filter_all(@original)
-    content = split_into_slides(textile)
-    html = RedCloth.new(content).to_html
+    content = Codex::Filters.instance.filter_all(@original)
+    Codex::TemplateHandler.choose(@filename).call(split_into_slides(content))
   end
   
   def split_into_slides(textile)
