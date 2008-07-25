@@ -36,7 +36,7 @@ class TestCodexGenerator < Test::Unit::TestCase
       assert_generated_file "content/#{slide}.textile"
     end
     assert_generated_file "content/metadata.yml"
-    %w[build_all postprocess_all pressie].each do |bin|
+    %w[build_all postprocess_all].each do |bin|
       assert_generated_file "bin/#{bin}.rb"
     end
     %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|

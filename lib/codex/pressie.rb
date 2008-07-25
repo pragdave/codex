@@ -66,35 +66,19 @@ S5_TAIL = %{
 
 module Codex
   class Pressie
-
-    def self.process
-      new.process
+    
+    def initialize(metadata)
+      @metadata = YAML.load_file(metadata)
     end
 
-    def process
-      metadata_name = ARGV.shift || usage("Missing metadata file name")
-      load_metadata(metadata_name)
-      input_name = ARGV.shift || usage("Missing input file name")
-      content = Content.new(File.read(input_name)) rescue usage($!.message)
+    def process(input, output)
       header = substitute_metadata_into(S5_HEAD)
-      puts header, content.to_html, S5_TAIL
-    end
-
-
-    private
-
-    def usage(msg = nil)
-      STDERR.puts "pressie.rb  <metadatafile> <inputfile>"
-      if msg
-        STDERR.puts
-        STDERR.puts msg
+      File.open(output, 'w') do |f|
+        f.puts header, Content.new(input).to_html, S5_TAIL
       end
-      exit 1
     end
 
-    def load_metadata(file_name)
-      @metadata = YAML.load_file(file_name)
-    end
+  private
 
     def substitute_metadata_into(text)
       text = text.dup

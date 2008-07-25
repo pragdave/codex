@@ -28,7 +28,7 @@ class CodexGenerator < RubiGen::Base
         m.file_copy_each "content/#{template}.textile"
       end
       m.file_copy_each "content/metadata.yml"
-      %w[build_all postprocess_all pressie].each do |bin|
+      %w[build_all postprocess_all].each do |bin|
         m.file_copy_each "bin/#{bin}.rb"
       end
       %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|

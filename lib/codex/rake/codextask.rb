@@ -48,7 +48,7 @@ module Codex
           @output << output_file
           desc "Build #{output_file} from #{input_file}"
           file output_file => ["#{output_dir}/", input_file] do
-            sh "ruby bin/pressie.rb #{metadata} #{input_file} > #{output_file}"
+            Codex::Pressie.new(metadata).process(input_file, output_file)
           end
         end
 
@@ -78,7 +78,7 @@ module Codex
         end
 
         task 'tmp/almost_all.html' => 'tmp/almost_all.textile' do
-          sh "ruby bin/pressie.rb #{metadata} tmp/almost_all.textile >tmp/almost_all.html"
+          Codex::Pressie.new(metadata).process('tmp/almost_all.textile', 'tmp/almost_all.html')
         end
 
         task 'tmp/almost_all.textile' => @output do
