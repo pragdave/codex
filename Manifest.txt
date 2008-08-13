@@ -9,12 +9,12 @@ app_generators/codex/codex_generator.rb
 app_generators/codex/templates/Rakefile
 app_generators/codex/templates/bin/build_all.rb
 app_generators/codex/templates/bin/postprocess_all.rb
-app_generators/codex/templates/bin/pressie.rb
 app_generators/codex/templates/code/control/basic_continuation.rb
 app_generators/codex/templates/code/control/cc_throw_catch.rb
 app_generators/codex/templates/code/control/closure_continuation.rb
 app_generators/codex/templates/code/control/closure_continuation_2.rb
 app_generators/codex/templates/code/graphviz/graph.dot
+app_generators/codex/templates/config/boot.rb
 app_generators/codex/templates/content/basics.textile
 app_generators/codex/templates/content/building.textile
 app_generators/codex/templates/content/example.textile
@@ -88,6 +88,7 @@ lib/codex/filters/graphviz_filter.rb
 lib/codex/filters/ritex_filter.rb
 lib/codex/pressie.rb
 lib/codex/rake/codextask.rb
+lib/codex/template_handler.rb
 lib/codex/version.rb
 lib/stylesheets/pressie.css
 lib/stylesheets/print.css
@@ -100,6 +101,8 @@ tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
 test/codex/rake/test_codextask.rb
+test/codex/test_pressie.rb
+test/codex/test_template_handler.rb
 test/test_codex_generator.rb
 test/test_filter.rb
 test/test_helper.rb
