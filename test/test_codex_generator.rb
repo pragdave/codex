@@ -29,7 +29,6 @@ class TestCodexGenerator < Test::Unit::TestCase
     %w(bin code config html content dp.SyntaxHighlighter script).each do |dir|
       assert_directory_exists dir
     end
-    assert_generated_file 'config/boot.rb'
     assert_generated_file   "Rakefile"
     assert_generated_file   "html/all.html"
     %w[basics building example including_code table_of_contents].each do |slide|

@@ -14,7 +14,6 @@ app_generators/codex/templates/code/control/cc_throw_catch.rb
 app_generators/codex/templates/code/control/closure_continuation.rb
 app_generators/codex/templates/code/control/closure_continuation_2.rb
 app_generators/codex/templates/code/graphviz/graph.dot
-app_generators/codex/templates/config/boot.rb
 app_generators/codex/templates/content/basics.textile
 app_generators/codex/templates/content/building.textile
 app_generators/codex/templates/content/example.textile
