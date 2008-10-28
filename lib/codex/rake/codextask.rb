@@ -1,3 +1,4 @@
+require 'codex'
 require 'rake'
 require 'rake/tasklib'
 

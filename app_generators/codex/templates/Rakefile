@@ -1,4 +1,10 @@
-require(File.join(File.dirname(__FILE__), 'config', 'boot'))
+APP_ROOT = File.dirname(__FILE__) unless defined?(APP_ROOT)
+require 'rubygems'
+if File.exist?("#{APP_ROOT}/vendor/codex")
+  $: << "#{APP_ROOT}/vendor/codex/lib"
+else
+  gem 'codex'
+end
 require 'codex/rake/codextask'
 
 Codex::Rake::CodexTask.new do |c|
