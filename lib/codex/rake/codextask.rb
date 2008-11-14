@@ -48,7 +48,7 @@ module Codex
           output_file = File.join(output_dir, file.ext('.html'))
           @output << output_file
           desc "Build #{output_file} from #{input_file}"
-          file output_file => ["#{output_dir}/", input_file] do
+          file output_file => [output_dir, input_file] do
             Codex::Pressie.new(metadata).process(input_file, output_file)
           end
         end
@@ -62,7 +62,7 @@ module Codex
         all_html   = File.join(output_dir, "all.html")
         namespace name do
           desc "Build all based on the contents of content/table_of_contents.textile"
-          task :all => [ 'tmp/', "#{output_dir}/", all_html, :remove_tmp ]
+          task :all => [ 'tmp', output_dir, all_html, :remove_tmp ]
 
           task :remove_tmp do
             FileUtils.rm_rf("tmp")
@@ -86,14 +86,9 @@ module Codex
           sh "ruby bin/build_all.rb #{metadata} #{content_dir}/table_of_contents.textile tmp/almost_all.textile"
         end
 
-        file "tmp/" do
-          mkdir "tmp"
-        end
+        directory "tmp"
 
-        file "#{output_dir}/" do
-          mkdir output_dir
-        end
-
+        directory output_dir
       end
     
     end
