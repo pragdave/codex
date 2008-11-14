@@ -1,9 +1,6 @@
 require 'redcloth'
 
 class Codex::Content
-  START_SLIDE = %{<div class="slide">\n}
-  END_SLIDE   = %{</div>\n}
-  BETWEEN_SLIDES = END_SLIDE + "\n" + START_SLIDE
 
   def initialize(filename)
     @filename = filename
@@ -12,16 +9,8 @@ class Codex::Content
 
   def to_html
     content = Codex::Filters.instance.filter_all(@original)
-    Codex::TemplateHandler.choose(@filename).call(split_into_slides(content))
+    html = Codex::TemplateHandler.choose(@filename).call(content)
+    Codex::PostProcessor.process(html)
   end
   
-  def split_into_slides(textile)
-    result = []
-    slides = textile.split(/^h1/).each do |slide|
-      unless slide.empty?
-        result << START_SLIDE << "\nh1" << slide << END_SLIDE
-      end
-    end
-    result.join
-  end
 end

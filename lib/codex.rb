@@ -11,6 +11,8 @@ end
 require 'codex/content'
 require 'codex/pressie'
 require 'codex/filter'
+require 'codex/post_processor'
+require 'codex/post_processor/slides'
 require 'codex/template_handler'
 
 # Filters:    
