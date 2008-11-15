@@ -18,18 +18,18 @@ S5_HEAD = %{<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <meta name="defaultView" content="slideshow" />
 <meta name="controlVis" content="hidden" />
 <!-- style sheet links -->
-<link rel="stylesheet" href="../ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
-<link rel="stylesheet" href="../ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
-<link rel="stylesheet" href="../lib/stylesheets/print.css" type="text/css" media="print" id="slidePrint" />
-<link rel="stylesheet" href="../ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="../assets/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="../assets/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="../assets/stylesheets/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="../assets/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
 
 <link rel="stylesheet" href="../lib/stylesheets/pressie.css" type="text/css" />
 
 <!-- S5 JS -->
-<script src="../ui/default/slides.js" type="text/javascript"></script>
+<script src="../assets/ui/default/slides.js" type="text/javascript"></script>
 
 <!-- Syntax Highlighter -->
-<link rel="stylesheet"  href="../dp.SyntaxHighlighter/Styles/SyntaxHighlighter.css"></link>
+<link rel="stylesheet"  href="../assets/dp.SyntaxHighlighter/Styles/SyntaxHighlighter.css"></link>
 
 </head>
 <body>
@@ -50,10 +50,10 @@ S5_HEAD = %{<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 S5_TAIL = %{
   <!-- Syntax Highlighter -->
-  <script language="javascript" src="../dp.SyntaxHighlighter/Scripts/shCore.js"></script>
-  <script language="javascript" src="../dp.SyntaxHighlighter/Scripts/shBrushCpp.js"></script>
-  <script language="javascript" src="../dp.SyntaxHighlighter/Scripts/shBrushRuby.js"></script>
-  <script language="javascript" src="../dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
+  <script language="javascript" src="../assets/dp.SyntaxHighlighter/Scripts/shCore.js"></script>
+  <script language="javascript" src="../assets/dp.SyntaxHighlighter/Scripts/shBrushCpp.js"></script>
+  <script language="javascript" src="../assets/dp.SyntaxHighlighter/Scripts/shBrushRuby.js"></script>
+  <script language="javascript" src="../assets/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
   <script language="javascript">
   dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
   dp.SyntaxHighlighter.HighlightAll('code');

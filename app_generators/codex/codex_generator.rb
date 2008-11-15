@@ -47,13 +47,17 @@ class CodexGenerator < RubiGen::Base
         "Scripts/shBrushXml.js", "Scripts/shCore.js", "Scripts/shCore.uncompressed.js",
         "Styles/SyntaxHighlighter.css", "Styles/TestPages.css",
         "Templates/Test.dwt"
-        ].each do |syntax|
-          m.file_copy_each "dp.SyntaxHighlighter/#{syntax}"
-        end
+      ].each do |syntax|
+        m.file_copy_each "assets/dp.SyntaxHighlighter/#{syntax}"
+      end
+      ["pressie.css", "print.css", "ruby.png"].each do |asset|
+        m.file_copy_each "assets/stylesheets/#{asset}"
+      end
       ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
-        "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
-          m.file_copy_each "ui/default/#{asset}"
-        end
+        "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"
+      ].each do |asset|
+        m.file_copy_each "assets/ui/default/#{asset}"
+      end
       m.template_copy_each "filters/example_filter.rb"
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
@@ -94,17 +98,18 @@ EOS
     # Installation skeleton.  Intermediate directories are automatically
     # created so don't sweat their absence here.
     BASEDIRS = %w(
+      assets/dp.SyntaxHighlighter/Scripts
+      assets/dp.SyntaxHighlighter/Styles
+      assets/dp.SyntaxHighlighter/Templates
+      assets/stylesheets
+      assets/ui/default
       bin
       code/control
       code/graphviz
       config
       html/images
-      dp.SyntaxHighlighter/Scripts
-      dp.SyntaxHighlighter/Styles
-      dp.SyntaxHighlighter/Templates
       script
       content
       filters
-      ui/default
     )
 end

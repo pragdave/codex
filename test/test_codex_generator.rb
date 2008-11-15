@@ -26,7 +26,7 @@ class TestCodexGenerator < Test::Unit::TestCase
 
   def test_generator_without_options
     generate
-    %w(bin code config html content dp.SyntaxHighlighter script).each do |dir|
+    %w(assets bin code config html content script).each do |dir|
       assert_directory_exists dir
     end
     assert_generated_file   "Rakefile"
@@ -54,11 +54,14 @@ class TestCodexGenerator < Test::Unit::TestCase
       "Styles/SyntaxHighlighter.css", "Styles/TestPages.css",
       "Templates/Test.dwt"
       ].each do |syntax|
-        assert_generated_file "dp.SyntaxHighlighter/#{syntax}"
+        assert_generated_file "assets/dp.SyntaxHighlighter/#{syntax}"
+      end
+      ["pressie.css", "print.css", "ruby.png"].each do |asset|
+        assert_generated_file "assets/stylesheets/#{asset}"
       end
     ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
       "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
-        assert_generated_file "ui/default/#{asset}"
+        assert_generated_file "assets/ui/default/#{asset}"
       end
   end
 
