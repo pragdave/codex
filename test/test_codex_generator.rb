@@ -53,16 +53,17 @@ class TestCodexGenerator < Test::Unit::TestCase
       "Scripts/shBrushXml.js", "Scripts/shCore.js", "Scripts/shCore.uncompressed.js",
       "Styles/SyntaxHighlighter.css", "Styles/TestPages.css",
       "Templates/Test.dwt"
-      ].each do |syntax|
-        assert_generated_file "assets/dp.SyntaxHighlighter/#{syntax}"
-      end
-      ["pressie.css", "print.css", "ruby.png"].each do |asset|
-        assert_generated_file "assets/stylesheets/#{asset}"
-      end
+    ].each do |syntax|
+      assert_generated_file "assets/dp.SyntaxHighlighter/#{syntax}"
+    end
+    ["pressie.css", "print.css", "ruby.png"].each do |asset|
+      assert_generated_file "assets/stylesheets/#{asset}"
+    end
     ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
       "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
         assert_generated_file "assets/ui/default/#{asset}"
-      end
+    end
+    assert_generated_file "templates/layout.erb"
   end
 
 end

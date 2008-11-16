@@ -78,6 +78,7 @@ app_generators/codex/templates/content/user_defined.textile
 app_generators/codex/templates/filters/example_filter.rb
 app_generators/codex/templates/html/all.html
 app_generators/codex/templates/readme.txt
+app_generators/codex/templates/templates/layout.erb
 bin/codex
 codex.gemspec
 config/hoe.rb

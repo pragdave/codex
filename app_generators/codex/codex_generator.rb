@@ -27,7 +27,7 @@ class CodexGenerator < RubiGen::Base
       %w[basics building example including_code including_tex table_of_contents user_defined graphviz].each do |template|
         m.file_copy_each "content/#{template}.textile"
       end
-      m.file_copy_each "content/metadata.yml"
+      m.template_copy_each "content/metadata.yml"
       %w[build_all postprocess_all].each do |bin|
         m.file_copy_each "bin/#{bin}.rb"
       end
@@ -59,6 +59,7 @@ class CodexGenerator < RubiGen::Base
         m.file_copy_each "assets/ui/default/#{asset}"
       end
       m.template_copy_each "filters/example_filter.rb"
+      m.file_copy_each "templates/layout.erb"
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
         :shebang => options[:shebang], :collision => :force
@@ -107,9 +108,10 @@ EOS
       code/control
       code/graphviz
       config
-      html/images
-      script
       content
       filters
+      html/images
+      script
+      templates
     )
 end
