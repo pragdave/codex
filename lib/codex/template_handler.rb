@@ -24,7 +24,6 @@ Codex::TemplateHandler.register :textile do |content|
   RedCloth.new(content).to_html
 end
 Codex::TemplateHandler.register :markdown do |content|
-  puts "using bluecloth"
   require 'bluecloth'
   BlueCloth.new(content).to_html
 end
