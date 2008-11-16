@@ -43,13 +43,15 @@ module Codex
 
       def define
         @output = []
+        pressie = Codex::Pressie.new(metadata)
+        
         contents.each do |file|
           input_file = File.join(content_dir, file)
           output_file = File.join(output_dir, file.ext('.html'))
           @output << output_file
           desc "Build #{output_file} from #{input_file}"
           file output_file => [output_dir, input_file] do
-            Codex::Pressie.new(metadata).process(input_file, output_file)
+            pressie.process(input_file, output_file)
           end
         end
 
@@ -79,7 +81,7 @@ module Codex
         end
 
         task 'tmp/almost_all.html' => 'tmp/almost_all.textile' do
-          Codex::Pressie.new(metadata).process('tmp/almost_all.textile', 'tmp/almost_all.html')
+          pressie.process('tmp/almost_all.textile', 'tmp/almost_all.html')
         end
 
         task 'tmp/almost_all.textile' => @output do
