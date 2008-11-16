@@ -1,7 +1,7 @@
 APP_ROOT = File.dirname(__FILE__) unless defined?(APP_ROOT)
 require 'rubygems'
 if File.exist?("#{APP_ROOT}/vendor/codex")
-  $: << "#{APP_ROOT}/vendor/codex/lib"
+  $:.unshift "#{APP_ROOT}/vendor/codex/lib"
 else
   gem 'codex'
 end
