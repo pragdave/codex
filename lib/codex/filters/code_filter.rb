@@ -67,14 +67,7 @@ module Codex::CodeFilter
     end
 
     def find_content_from(desc)
-      begin
-        content = File.read(desc.file_name)
-      rescue   Exception => e
-        STDERR.puts e.message
-        exit 2
-      end
-
-      find_part_in(content, desc.part)
+      find_part_in(File.read(desc.file_name), desc.part)
     end
 
     def find_part_in(content, part_name)
