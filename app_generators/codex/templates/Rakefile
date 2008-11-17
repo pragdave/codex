@@ -6,6 +6,7 @@ else
   gem 'codex'
 end
 require 'codex/rake/codextask'
+Codex.root = APP_ROOT
 
 Codex::Rake::CodexTask.new do |c|
   # c.content_dir = 'content'
