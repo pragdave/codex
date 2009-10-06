@@ -147,14 +147,17 @@ div#slide0 h1, div.title h1 {
 }
 
 /* code layout */
-div.code-large {
+div.code-superlarge {
 	font-size: 150% !important;
 	line-height: 1.6em !important;
 }
-
+div.code-large {
+	font-size: 90% !important;
+	line-height: 2em !important;
+}
 
 div.code-normal {
-	font-size: 90% !important;
+	font-size: 75% !important;
 	line-height: 2em !important;
 }
 
@@ -163,7 +166,7 @@ div.code-normal li {
 }
 
 div.code-small {
-	font-size: 75% !important;
+	font-size: 50% !important;
 	line-height: 2em !important;
 }
 
@@ -172,7 +175,7 @@ div.code-small li {
 }
 
 div.code-tiny {
-	font-size: 50% !important;
+	font-size: 40% !important;
 	line-height: 2em !important;
 }
 
