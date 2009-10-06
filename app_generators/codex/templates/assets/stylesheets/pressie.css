@@ -11,7 +11,7 @@ div.slide code {
     
 div.dp-highlighter
 {
-	font-family: "Gill Sans", "Consolas", "Courier New", Courier, mono;
+	font-family: "Monaco", "Consolas", "Courier New", Courier, mono;
 	font-size: 100%;
 	background-color: white;
 	overflow: auto;
