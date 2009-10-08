@@ -83,3 +83,19 @@ module Codex
     end
   end
 end
+
+# Loads all the filters:    
+# If a filter fails to load, simply ignore it (it may be a missing local gem, such
+# as ritex). This means that folks who write filters must ensure that their source
+# throws an exception should it fail to find all its dependencies
+
+Dir.glob([
+    File.join(File.dirname(__FILE__), 'filters/*.rb'), 
+    File.join(APP_ROOT, 'filters/*.rb')
+    ]) do |filter|
+  begin
+    require(filter)
+  rescue Exception => e
+    ;
+  end
+end
