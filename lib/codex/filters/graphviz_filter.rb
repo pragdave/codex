@@ -11,6 +11,8 @@ module Codex::GraphvizFilter
     attr_reader :engine, :width, :height, :file_name, :file_type
     
     include FileUtils
+    
+    raise "Graphviz ('dot') is not installed." unless which('dot')
 
     def initialize(string)
       @engine = "dot"
