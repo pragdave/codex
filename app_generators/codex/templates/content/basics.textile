@@ -26,13 +26,17 @@ h1. @.textile@ files
 * Each @.textile@ file is a separate chunk of the presentation
 * The first @h1.@ heading is the banner page for that chunk
 * Each subsequent @h1.@ starts a new slide
+* Using @h1(slide0).@ will create a title slide, like the first slide in every file
 
 
 h1. Table of Contents
 
+<div style="width:40%; float:right;">
+:code content/table_of_contents.textile[class=code-tiny]
+</div>
+
+<div style="width:58%">
 * You can divide your material into segments, each in a separate @xxx.textile@ file
 * Then create @content/table_of_contents.textile@, eg:
-
-:code content/table_of_contents.textile[class=code-small]
-
+</div>
 

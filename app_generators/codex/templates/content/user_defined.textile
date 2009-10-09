@@ -1,21 +1,24 @@
-h1. User-defined filters
+h1. User-defined filters and post processors
+
+h1(slide0). User-defined filters
+
+Create your own tags
 
 h1. User-defined filters
 
 * Allow you to create your own @filters@ and @tags@
-* They go in the filters/ directory
+* They go in the @filters/@ directory
 * There already is an example filter there
 
 h1. Example filter
 
 <div style="width: 50%; float: right">
 
-:code filters/example_filter.rb[class=code-normal]
+:code filters/example_filter.rb[class=code-small]
 
 </div>
 
-
-<div style="width: 50%">
+<div style="width: 49%">
 
 * Declare a class which inherits from @Codex::Filter@
 ** Set the tag you wish to use
@@ -42,3 +45,41 @@ The result is:
 :inlinetest
 Reverse this text
 :endinlinetest
+
+
+h1(slide0). User defined Post Processors
+
+Make your own changes to the slides after they are built
+
+h1. User defined Post Processors
+
+* Allow you to alter the generated HTML to your content
+* You can use an HTML parser such as "Hpricot":http://github.com/whymirror/hpricot to make complex modifications or @String#gsub@ to make simple changes
+* They go in the @post_processors/@ directory
+* There is an example Post Processor define
+
+h1. Example Post Processor
+
+<div style="width: 50%; float: right">
+
+:code post_processors/upcase_titles.rb[class=code-tiny]
+
+</div>
+
+<div style="width: 49%">
+
+* Declare a class which inherits from @Codex::PostProcessor@
+* Run the @register@ class method on top of the class declaration (commented in the example)
+* Implement @process()@ 
+* Manipulate the @html@ string variable. Whatever is held in @html@ will be passed on to the slides parser (and maybe to other Post Processors).
+
+</div>
+
+It's also _that_ simple.
+
+h1. Using the example
+
+* Simply uncomment @# register@ and regenerate the slides using @rake@ (you may need to delete the old @.html@ files in @html/@)
+* You will see that all titles are now in UPCASE.
+* If you want to control the order that Post Processors are applied, name their files incrementally (ex.: @01_process_code.rb@, @02_process_text.rb@, etc)
+

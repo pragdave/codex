@@ -32,3 +32,4 @@ It is also possible to process graphviz from a given file:
 :end
 
 :graphviz code/graphviz/graph.dot
+

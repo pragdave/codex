@@ -29,3 +29,4 @@ Ressources:
 * "The Ritex documentation":http://ritex.rubyforge.org/
 
 The flipside is that MathML doesn't always display properly in browsers :-(
+
