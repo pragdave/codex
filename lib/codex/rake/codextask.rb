@@ -13,14 +13,14 @@ module Codex
       # Directory to output the built files into. Defaults to 'html'
       attr_accessor :output_dir
 
-      # Metadata filename. Defaults to #{content_dir}/metadata.yml
+      # Metadata filename. Defaults to config/metadata.yml
       attr_accessor :metadata
 
       def initialize(name = :codex)
         @name = name
         @content_dir = 'content'
         @output_dir = 'html'
-        @metadata = "#{content_dir}/metadata.yml"
+        @metadata = "config/metadata.yml"
         yield self if block_given?
         define
       end
@@ -76,16 +76,12 @@ module Codex
           FileUtils.rm_rf output_path
         end
         
-        task all_html => 'tmp/almost_all.html' do
-          sh "ruby bin/postprocess_all.rb tmp/almost_all.html > #{all_html}"
+        task all_html => 'tmp/all.textile' do
+          pressie.process('tmp/all.textile', all_html)
         end
 
-        task 'tmp/almost_all.html' => 'tmp/almost_all.textile' do
-          pressie.process('tmp/almost_all.textile', 'tmp/almost_all.html')
-        end
-
-        task 'tmp/almost_all.textile' => @output do
-          sh "ruby bin/build_all.rb #{metadata} #{content_dir}/table_of_contents.textile tmp/almost_all.textile"
+        task 'tmp/all.textile' => @output do
+          sh "ruby bin/build_all.rb #{metadata} #{content_dir}/table_of_contents.textile tmp/all.textile"
         end
 
         directory "tmp"

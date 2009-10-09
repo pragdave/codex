@@ -11,5 +11,5 @@ Codex.root = APP_ROOT
 Codex::Rake::CodexTask.new do |c|
   # c.content_dir = 'content'
   # c.output_dir  = 'html'
-  # c.metadata    = "#{c.content_dir}/metadata.yml"
+  # c.metadata    = "config/metadata.yml"
 end

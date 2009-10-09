@@ -7,11 +7,12 @@ h1. Content and Code
 * Content can embed parts of the source files
 * It's all processed into an HTML-based presentation
   
+
 h1. Presentation Metadata
 
-* Required file @content/metadata.yml@
+* Required file @config/metadata.yml@
 
-:code content/metadata.yml
+:code config/metadata.yml
 
 h1. Where Stuff Goes
 

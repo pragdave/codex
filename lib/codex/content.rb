@@ -10,7 +10,7 @@ class Codex::Content
   def to_html
     content = Codex::Filters.instance.filter_all(@original)
     html = Codex::TemplateHandler.choose(@filename).call(content)
-    Codex::PostProcessor.process(html)
+    Codex::PostProcessors.instance.process_all(html)
   end
   
 end
