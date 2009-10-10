@@ -34,8 +34,8 @@ class TestCodexGenerator < Test::Unit::TestCase
     %w[basics building example including_code table_of_contents].each do |slide|
       assert_generated_file "content/#{slide}.textile"
     end
-    assert_generated_file "content/metadata.yml"
-    %w[build_all postprocess_all].each do |bin|
+    assert_generated_file "config/metadata.yml"
+    %w[build_all].each do |bin|
       assert_generated_file "bin/#{bin}.rb"
     end
     %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|
@@ -62,6 +62,9 @@ class TestCodexGenerator < Test::Unit::TestCase
     ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
       "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"].each do |asset|
         assert_generated_file "assets/ui/default/#{asset}"
+    end
+    ["change_code_urls.rb", "upcase_titles.rb"].each do |asset|
+      assert_generated_file "post_processors/#{asset}"
     end
     assert_generated_file "templates/layout.erb"
   end

@@ -6,7 +6,11 @@ module Codex
     class TestCodexTask < Test::Unit::TestCase
       def setup
         generate
-        @task = CodexTask.new
+        @task = CodexTask.new do |c|
+          # c.content_dir = 'content'
+          # c.output_dir  = 'html'
+          c.metadata    = "#{APP_ROOT}/config/metadata.yml"
+        end
       end
       
       def test_name_defaults_to_codex
@@ -19,10 +23,6 @@ module Codex
 
       def test_output_dir_defaults_to_html
         assert_equal 'html', @task.output_dir
-      end
-
-      def test_metadata_defaults_to_yml
-        assert_equal 'content/metadata.yml', @task.metadata
       end
 
       def test_clean

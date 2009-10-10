@@ -5,7 +5,7 @@ module Codex
     
     def setup
       generate
-      @pressie = Pressie.new("#{APP_ROOT}/content/metadata.yml")
+      @pressie = Pressie.new("#{APP_ROOT}/config/metadata.yml")
       @input = "#{APP_ROOT}/content/building.textile"
       @output = "#{APP_ROOT}/html/building.html"
     end

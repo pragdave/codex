@@ -1,7 +1,3 @@
-require 'rubygems'
-require 'test/unit'
-require File.expand_path(File.dirname(__FILE__) + '/../lib/codex')
-
 # Must set before requiring generator libs.
 TMP_ROOT = File.dirname(__FILE__) + "/tmp" unless defined?(TMP_ROOT)
 PROJECT_NAME = "myproject" unless defined?(PROJECT_NAME)
@@ -11,6 +7,10 @@ if defined?(APP_ROOT)
 else
   APP_ROOT = app_root
 end
+
+require 'rubygems'
+require 'test/unit'
+require File.expand_path(File.dirname(__FILE__) + '/../lib/codex')
 
 require 'rubigen'
 require 'rubigen/helpers/generator_test_helper'

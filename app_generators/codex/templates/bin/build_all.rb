@@ -43,5 +43,6 @@ File.open(op_name, "w") do |op|
 
   contents.each do |content|
     op.puts content.sub(/h1/, 'h1(slide0)').sub(/__END__.*/m, '')
+    op.puts "\n\n"
   end
 end

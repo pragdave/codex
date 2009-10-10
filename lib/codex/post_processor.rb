@@ -17,6 +17,9 @@ module Codex
     def << (post_processor_class)
       @post_processors << post_processor_class
     end
+    def delete(post_processor_class)
+      @post_processors.delete(post_processor_class)
+    end
     def process_all(html)
       @new_html = html
       @post_processors.each do |pp_class|

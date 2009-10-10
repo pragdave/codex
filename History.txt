@@ -1,3 +1,23 @@
+== 1.1 2009-10-10
+
+* A new directory organization for the project files (brandon)
+	* The slides source now go in content/
+	* assets/ will now hold all support files used by the slide's html (javascript, css, etc)
+	* templates/ will hold the html template for the slides (see below)
+* Support for multiple template languages (brandon)
+	* The slide content files now end with a template language extension (such as .textile or .markdown)
+	* New template handlers can be define in lib/codex/template_handler.rb
+* metadata.yml now goes in config/ so it won't be parsed as a slide, due to the new template handler functionality (bernardo)
+* Support for a master ERB layout for the .html files (brandon)
+	* The layout goes in templates/layout.erb
+* Support for user defined post processors (bernardo)
+	* System wide post processors go in lib/codex/post_processors
+	* bin/postprocess_all.rb moved to a post processor
+	* The division of the slides by h1. now implemented in a post processor (brandon)
+	* Functionality defined in lib/codex/post_processor.rb
+* Now using the Monaco fixed width font to display code (bernardo)
+* Fixed a few other tiny show stopper bugs and makes everything ready for a new tested gem release (bernardo) 
+
 == 1.0.3 2008-05-22
 
 * Support for user defined filters

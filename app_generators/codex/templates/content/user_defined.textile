@@ -56,9 +56,9 @@ h1. User defined Post Processors
 * Allow you to alter the generated HTML to your content
 * You can use an HTML parser such as "Hpricot":http://github.com/whymirror/hpricot to make complex modifications or @String#gsub@ to make simple changes
 * They go in the @post_processors/@ directory
-* There is an example Post Processor define
+* There are sample Post Processors defined in this directory
 
-h1. Example Post Processor
+h1. How to create your own Post Processor
 
 <div style="width: 50%; float: right">
 
@@ -74,8 +74,6 @@ h1. Example Post Processor
 * Manipulate the @html@ string variable. Whatever is held in @html@ will be passed on to the slides parser (and maybe to other Post Processors).
 
 </div>
-
-It's also _that_ simple.
 
 h1. Using the example
 
