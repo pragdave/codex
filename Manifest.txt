@@ -2,6 +2,7 @@ History.txt
 LICENSE.txt
 Manifest.txt
 PostInstall.txt
+README.rdoc
 README.txt
 Rakefile
 app_generators/codex/USAGE
