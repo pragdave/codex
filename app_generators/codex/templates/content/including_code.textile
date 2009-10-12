@@ -57,10 +57,13 @@ h1. Override Code Language and/or CSS Class
 :endinlinecode
        
 * can appear in any order
-* @lang=@<em>anything supported by SyntaxHighlighter</em> 
-** look in @dp.SyntaxHighlighter/Scripts@)
-* @class=code-large | code-normal | code-small | code-tiny | code-supertiny@
-                                                                                  
+* @lang=@<em>anything supported by SyntaxHighlighter</em>
+** Defaults to @ruby@
+** @cpp | csharp | css | delphi | java | jscript | php | python | ruby | sql | vb | xml@ 
+** look in @assets/dp.SyntaxHighlighter@
+* @class=code-superlarge | code-large | code-normal | code-small | code-tiny | code-supertiny@
+
+                                                                               
 h1. Embedding Code Inline
 
 :inlinecode
@@ -72,8 +75,8 @@ h1. Embedding Code Inline
 
 * @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@     
 
-:inlinecode
- :inlinecode lang=ruby
+:inlinecode[class=code-large]
+ :inlinecode[lang=ruby class=code-large]
     puts "Hello World!"
  :endinlinecode
 :endinlinecode 
