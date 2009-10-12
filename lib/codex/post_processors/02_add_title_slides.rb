@@ -1,7 +1,7 @@
 # This allows you to create title slides in the middle of presentations,
 # using:
 #   h1(slide0). Slide that only has a title
-# This is used by the @rake codex:all@ task,
+# This is used by the @rake all@ task,
 # that will build the @html/all.html@ file.
 class Codex::AddTitleSlides < Codex::PostProcessor
   register

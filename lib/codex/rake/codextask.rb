@@ -62,14 +62,13 @@ module Codex
         
         # FIXME: clean up all this
         all_html   = File.join(output_dir, "all.html")
-        namespace name do
-          desc "Build all based on the contents of content/table_of_contents.textile"
-          task :all => [ 'tmp', output_dir, all_html, :remove_tmp ]
 
-          task :remove_tmp do
-            FileUtils.rm_rf("tmp")
-          end
+        task :remove_tmp do
+          FileUtils.rm_rf("tmp")
         end
+        
+        desc "Build all based on the contents of content/table_of_contents.textile"
+        task :all => [ 'tmp', output_dir, all_html, :remove_tmp ]
 
         desc "Remove all generated output and temporary files"
         task :clean => "#{name}:remove_tmp" do

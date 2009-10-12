@@ -22,7 +22,7 @@ source file, allowing that file to be brought up in Textmate.
 
 == Usage
 
-* type 'rake codex:all' in the same directory as this README file
+* type 'rake all' in the same directory as this README file
 * open html/all.html
 
 == License

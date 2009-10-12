@@ -8,7 +8,7 @@ h1. Building HTML Slides
     
 * If you've created a @content/table_of_contents.textile@, build the whole presentation with
 
-    @rake codex:all@
+    @rake all@
     
   The output will be in @html/all.html@
   
