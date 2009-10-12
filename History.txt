@@ -10,6 +10,7 @@
 * metadata.yml now goes in config/ so it won't be parsed as a slide, due to the new template handler functionality (bernardo)
 * Support for a master ERB layout for the .html files (brandon)
 	* The layout goes in templates/layout.erb
+* You can now use "edge" codex by git cloning the codex source into vendor/codex, inside a codex project dir (brandon)
 * Support for user defined post processors (bernardo)
 	* System wide post processors go in lib/codex/post_processors
 	* bin/postprocess_all.rb moved to a post processor
