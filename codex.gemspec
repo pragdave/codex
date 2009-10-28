@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{codex}
-  s.version = "1.1.0"
+  s.version = "1.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Thomas"]
@@ -40,4 +40,7 @@ To create new presentations:
   else
     s.add_dependency(%q<hoe>, [">= 2.3.3"])
   end
+
+  s.add_dependency("rubigen")
+  
 end
