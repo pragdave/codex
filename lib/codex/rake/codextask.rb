@@ -71,7 +71,7 @@ module Codex
         task :all => [ 'tmp', output_dir, all_html, :remove_tmp ]
 
         desc "Remove all generated output and temporary files"
-        task :clean => "#{name}:remove_tmp" do
+        task :clean => "remove_tmp" do
           FileUtils.rm_rf output_path
         end
         

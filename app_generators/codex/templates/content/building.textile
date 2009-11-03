@@ -6,7 +6,7 @@ h1. Building HTML Slides
 
     @rake html/xxx.html@
     
-* If you've created a @content/table_of_contents.textile@, build the whole presentation with
+* If you’ve created a @content/table_of_contents.textile@, build the whole presentation with
 
     @rake all@
     
@@ -18,7 +18,7 @@ h1. Running the Presentation
 
 * See the "S5 documentation":http://meyerweb.com/eric/tools/s5/ for details
 
-* Some hints
+* Some hints—
 ** arrow keys and space bar work
 ** type the slide number to jump
 ** mouse over the bottom right to bring up a set of controls and a list of all available slides

@@ -23,18 +23,18 @@ class CodexGenerator < RubiGen::Base
 
       # Create stubs
       m.template_copy_each %w[Rakefile]
-      m.template_copy_each "html/all.html"
+      m.template_copy_each %w[html/all.html]
       %w[basics building example including_code including_tex table_of_contents user_defined graphviz].each do |template|
-        m.file_copy_each "content/#{template}.textile"
+        m.file_copy_each ["content/#{template}.textile"]
       end
-      m.template_copy_each "config/metadata.yml"
+      m.template_copy_each %w[config/metadata.yml]
       %w[build_all].each do |bin|
-        m.file_copy_each "bin/#{bin}.rb"
+        m.file_copy_each ["bin/#{bin}.rb"]
       end
       %w[basic_continuation cc_throw_catch closure_continuation closure_continuation_2].each do |code|
-        m.file_copy_each "code/control/#{code}.rb"
+        m.file_copy_each ["code/control/#{code}.rb"]
       end
-      m.file_copy_each "code/graphviz/graph.dot"
+      m.file_copy_each ["code/graphviz/graph.dot"]
       ["CollapseCode.html", "Cpp.html", "CrashTest.html", "CSharp.html", "CSS.html",
         "Delphi.html", "FirstLine.html", "Index.html", "Java.html", "JavaScript.html",
         "NoControls.html", "NoGutter.html", "PHP.html", "Python.html", "Ruby.html",
@@ -48,21 +48,21 @@ class CodexGenerator < RubiGen::Base
         "Styles/SyntaxHighlighter.css", "Styles/TestPages.css",
         "Templates/Test.dwt"
       ].each do |syntax|
-        m.file_copy_each "assets/dp.SyntaxHighlighter/#{syntax}"
+        m.file_copy_each ["assets/dp.SyntaxHighlighter/#{syntax}"]
       end
       ["pressie.css", "print.css", "ruby.png"].each do |asset|
-        m.file_copy_each "assets/stylesheets/#{asset}"
+        m.file_copy_each ["assets/stylesheets/#{asset}"]
       end
       ["blank.gif", "bodybg.gif", "framing.css", "iepngfix.htc", "opera.css", "outline.css",
         "pretty.css", "print.css", "s5-core.css", "slides.css", "slides.js"
       ].each do |asset|
-        m.file_copy_each "assets/ui/default/#{asset}"
+        m.file_copy_each ["assets/ui/default/#{asset}"]
       end
-      m.template_copy_each "filters/example_filter.rb"
+      m.template_copy_each ["filters/example_filter.rb"]
       ["change_code_urls.rb", "upcase_titles.rb"].each do |asset|
-        m.file_copy_each "post_processors/#{asset}"
+        m.file_copy_each ["post_processors/#{asset}"]
       end
-      m.file_copy_each "templates/layout.erb"
+      m.file_copy_each ["templates/layout.erb"]
 
       m.dependency "install_rubigen_scripts", [destination_root, 'codex'],
         :shebang => options[:shebang], :collision => :force

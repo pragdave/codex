@@ -22,13 +22,12 @@ class Test::Unit::TestCase
   
 private
   
-  def generate
+  def generate    
     run_generator('codex', [Codex.root], sources)
   end
   
   def sources
-    [RubiGen::PathSource.new(:test, File.join(File.dirname(__FILE__),"..", 'app_generators'))
-    ]
+    [ RubiGen::PathSource.new(:test, File.join(File.dirname(__FILE__),"..", 'app_generators')) ]
   end
 
 end

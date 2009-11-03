@@ -15,8 +15,9 @@ module Codex
     end
     
     def test_process
-      assert !File.exist?(@output)
+      assert !File.exist?(@output), "#{@output} already exists"
       @pressie.process(@input, @output)
+      puts @output.inspect
       assert File.exist?(@output)
     end
     
