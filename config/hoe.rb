@@ -34,10 +34,6 @@ Run 'rubyforge setup' to prepare your env for access to Rubyforge
 end
 
 
-REV = nil
-# UNCOMMENT IF REQUIRED:
-# REV = YAML.load(`svn info`)['Revision']
-VERS = Codex::VERSION::STRING + (REV ? ".#{REV}" : "")
 RDOC_OPTS = ['--quiet', '--title', 'codex documentation',
     "--opname", "index.html",
     "--line-numbers",
@@ -54,17 +50,16 @@ end
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec(GEM_NAME) do |p|
-  p.version = VERS
-  p.developer(AUTHOR, EMAIL)
-  p.description = DESCRIPTION
-  p.summary = DESCRIPTION
-  p.url = HOMEPATH
-  p.rubyforge_name = RUBYFORGE_PROJECT if RUBYFORGE_PROJECT
-  p.test_globs = ["test/**/test_*.rb"]
-  p.clean_globs |= ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']  #An array of file patterns to delete on clean.
+  developer(AUTHOR, EMAIL)
+  description = DESCRIPTION
+  summary = DESCRIPTION
+  url = HOMEPATH
+  rubyforge_name = RUBYFORGE_PROJECT if RUBYFORGE_PROJECT
+  test_globs = ["test/**/test_*.rb"]
+  clean_globs |= ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']  #An array of file patterns to delete on clean.
 
   # == Optional
-  p.changes = p.paragraphs_of("History.txt", 0..1).join("\n\n")
+  changes = paragraphs_of("History.txt", 0..1).join("\n\n")
   #p.extra_deps = EXTRA_DEPENDENCIES
 
     #p.spec_extras = {}    # A hash of extra values to set in the gemspec.

@@ -1,9 +1,7 @@
 module Codex #:nodoc:
-  module VERSION #:nodoc:
-    MAJOR = 1
-    MINOR = 1
-    TINY  = 0
+  # Thanks, Hoe
+  VERSION = "1.1.1" 
+end      
 
-    STRING = [MAJOR, MINOR, TINY].join('.')
-  end
-end
+
+
