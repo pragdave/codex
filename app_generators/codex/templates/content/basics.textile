@@ -6,7 +6,7 @@ h1. Content and Code
 * Code is written as normal source files
 * Content can embed parts of the source files
 * It's all processed into an HTML-based presentation
-  
+
 
 h1. Presentation Metadata
 

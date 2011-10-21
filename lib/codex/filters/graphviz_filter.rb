@@ -6,12 +6,12 @@ require 'facets/fileutils/which.rb'
 module Codex::GraphvizFilter
   OUTPUT_DIR="html/images/"
   LINK_DIR="images/"
-  
+
   class Descriptor
     attr_reader :engine, :width, :height, :file_name, :file_type
-    
+
     include FileUtils
-    
+
     raise "Graphviz ('dot') is not installed." unless which('dot')
 
     def initialize(string)
@@ -54,7 +54,7 @@ module Codex::GraphvizFilter
         end
       end
     end
-    
+
     def graphviz_cmd(outputfile)
       exec = which(@engine)
       file = (@file_name.nil? or @file_name.empty?)?"":File.expand_path(@file_name)
@@ -64,7 +64,7 @@ module Codex::GraphvizFilter
 
   class GraphViz < Codex::Filter
     tag :graphviz
-    
+
     def filter_inline(text,args)
       d = Descriptor.new(args)
       output_file = "graphviz-" + Digest::MD5.hexdigest(text) + "." + d.file_type
@@ -81,7 +81,7 @@ module Codex::GraphvizFilter
       system d.graphviz_cmd(OUTPUT_DIR + output_file)
       to_html(d,output_file)
     end
-    
+
     def to_html(d,output_file)
       if d.file_type == "svg"
         %{<object type="image/svg+xml" name="graphviz" data="#{LINK_DIR + output_file}" #{width_html(d)} #{height_html(d)}">\n} +
@@ -92,7 +92,7 @@ module Codex::GraphvizFilter
         %{</img>}
       end
     end
-    
+
     def width_html(desc)
       if desc.width.nil?
         ""
@@ -100,7 +100,7 @@ module Codex::GraphvizFilter
         %{width="#{desc.width}"}
       end
     end
-    
+
     def height_html(desc)
       if desc.height.nil?
         ""

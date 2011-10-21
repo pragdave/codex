@@ -12,7 +12,7 @@
 
 
 body div.slide, ul {
-    page-break-inside: avoid !important; 
+    page-break-inside: avoid !important;
     widows: 20;
     orphans: 20;
     visibility: visible !important;
@@ -30,19 +30,19 @@ body {margin-left: 75px; font-size: 12pt; background: blue;}
 
 body div div#slide0 h1, body div div.title h1 {
     page-break-before: always;
-    font-size: 200%; 
-    border: 2px solid black; 
+    font-size: 200%;
+    border: 2px solid black;
     margin: 0.5em 0 0.25em;
     padding: 1em 1em 1em 1em;
     color: black;
-    text-align: center;    
+    text-align: center;
 }
 
 div#slide0 {margin-bottom: 3em;}
 
 body div.slide h1 {
-    border-top: 2pt solid gray; 
-    border-bottom: 1px dotted silver; 
+    border-top: 2pt solid gray;
+    border-bottom: 1px dotted silver;
     color: black;
     text-transform: none;
     font-size: 150%;
@@ -72,7 +72,7 @@ div div.code-large, div div.code-small, div div.code-normal, div div.code-tiny, 
 
 
 
-/*** Original 
+/*** Original
 
 x div.slide ul {
     margin-left: 0pt;
@@ -86,7 +86,7 @@ x div.slide th {
   background: #337;
   color:      white;
   font-weight: bold;
-  padding:    0.2em 0em 0.2em 0em;    
+  padding:    0.2em 0em 0.2em 0em;
 }
 
 

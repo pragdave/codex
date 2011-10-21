@@ -13,7 +13,7 @@ h1. Including Code in Slides
 
 h1. Including Parts of a Source File
 
-* In the source file, use comments containing @START:sometag@ and @END:sometag@        
+* In the source file, use comments containing @START:sometag@ and @END:sometag@
 
 :inlinecode
 class SomeClass
@@ -29,7 +29,7 @@ end
 
 :inlinecode
 :code code/myfile.rb[useful-method]
-:endinlinecode   
+:endinlinecode
 
 h1. Merge Multiple Fragments
 
@@ -41,7 +41,7 @@ class SomeClass
     # ...
   end
 #END:constructor
-     
+
   def other_methods...
   end
 #START:constructor
@@ -55,15 +55,15 @@ h1. Override Code Language and/or CSS Class
 :inlinecode
 :code code/file.xxx[section lang=name class=name]
 :endinlinecode
-       
+
 * can appear in any order
 * @lang=@<em>anything supported by SyntaxHighlighter</em>
 ** Defaults to @ruby@
-** @cpp | csharp | css | delphi | java | jscript | php | python | ruby | sql | vb | xml@ 
+** @cpp | csharp | css | delphi | java | jscript | php | python | ruby | sql | vb | xml@
 ** look in @assets/dp.SyntaxHighlighter@
 * @class=code-superlarge | code-large | code-normal | code-small | code-tiny | code-supertiny@
 
-                                                                               
+
 h1. Embedding Code Inline
 
 :inlinecode
@@ -71,13 +71,13 @@ h1. Embedding Code Inline
  code that
  goes inline in slides
  :endinlinecode
-:endinlinecode 
+:endinlinecode
 
-* @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@     
+* @:inlinecode@ optionally takes @lang=xxx@ and @class=xx@
 
 :inlinecode[class=code-large]
  :inlinecode[lang=ruby class=code-large]
     puts "Hello World!"
  :endinlinecode
-:endinlinecode 
+:endinlinecode
 

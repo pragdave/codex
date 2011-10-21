@@ -12,5 +12,5 @@ class Codex::Content
     html = Codex::TemplateHandler.choose(@filename).call(content)
     Codex::PostProcessors.instance.process_all(html)
   end
-  
+
 end

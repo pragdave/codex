@@ -24,16 +24,16 @@ END
     @postprocessors = Codex::PostProcessors.instance
     @postprocessors << TemporaryPostProcessor
   end
-  
+
   def teardown
     @postprocessors.delete(TemporaryPostProcessor)
   end
-  
+
   def test_process_all
     output = @postprocessors.process_all(INPUT)
     assert  output.index("<p>paragraph</p>")
   end
-  
+
   def test_newly_registered_post_process_works
     output = @postprocessors.process_all(INPUT)
     assert  output.index("TemporaryPostProcessor was here!")

@@ -9,7 +9,7 @@ h1. Creating Slideshows
 
 * "Building and Displaying HTML":building.html
 
-h1. An Example     
+h1. An Example
 
 * "Some Sample Slides":example.html
 

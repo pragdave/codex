@@ -32,7 +32,7 @@ END
   def setup
     @postprocessor = Codex::AddTitleSlides.new(INPUT)
   end
-  
+
   def test_process
     @postprocessor.process
     assert_equal OUTPUT.strip, @postprocessor.html.strip

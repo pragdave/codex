@@ -3,7 +3,7 @@ module Codex
     # Call this in your subclass to register the PostProcessor
     def self.register
       PostProcessors.instance << self
-    end 
+    end
     attr_reader :html
     def initialize(html)
       @html = html
@@ -29,22 +29,22 @@ module Codex
       end
       @new_html
     end
-    
+
     private
-    
+
     def initialize
       @post_processors = []
     end
-    
+
   end
-  
+
 end
 
 # Requires all Post Processores files inside the lib and the slides directory.
 # Ignores errors so that processors that depend on external libs and gems
 # that are not present won't break the app.
 Dir.glob([
-    File.join(File.dirname(__FILE__), 'post_processors/*.rb'), 
+    File.join(File.dirname(__FILE__), 'post_processors/*.rb'),
     File.join(APP_ROOT, 'post_processors/*.rb')
     ]) do |post_processor|
   begin

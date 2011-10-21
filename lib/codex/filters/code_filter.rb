@@ -57,12 +57,12 @@ module Codex::CodeFilter
       %{</pre></div>} +
       format_link(desc)
     end
-    
+
     def format_link(desc)
       if desc.file_name.nil?
         "\n\n"
       else
-        %{<div class="codeurl"><a href="txmt://open?url=file://#{File.expand_path(desc.file_name)}">#{desc.file_name}</a></div>\n\n}        
+        %{<div class="codeurl"><a href="txmt://open?url=file://#{File.expand_path(desc.file_name)}">#{desc.file_name}</a></div>\n\n}
       end
     end
 

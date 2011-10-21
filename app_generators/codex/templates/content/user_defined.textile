@@ -22,7 +22,7 @@ h1. Example filter
 
 * Declare a class which inherits from @Codex::Filter@
 ** Set the tag you wish to use
-** Implement @filter_inline(text,args)@ 
+** Implement @filter_inline(text,args)@
 ** Implement @filter_single(args)@
 ** You can omit filter_single if you just want it to load a file and parse it through filter_inline
 
@@ -70,7 +70,7 @@ h1. How to create your own Post Processor
 
 * Declare a class which inherits from @Codex::PostProcessor@
 * Run the @register@ class method on top of the class declaration (commented in the example)
-* Implement @process()@ 
+* Implement @process()@
 * Manipulate the @html@ string variable. Whatever is held in @html@ will be passed on to the slides parser (and maybe to other Post Processors).
 
 </div>

@@ -5,13 +5,13 @@ h1. Building HTML Slides
 * Given an individual section in @content/xxx.textile@
 
     @rake html/xxx.html@
-    
+
 * If you’ve created a @content/table_of_contents.textile@, build the whole presentation with
 
     @rake all@
-    
+
   The output will be in @html/all.html@
-  
+
 h1. Running the Presentation
 
 * Simply open the appropriate HTML file

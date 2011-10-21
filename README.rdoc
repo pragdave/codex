@@ -6,7 +6,7 @@ http://github.com/pragdave/codex
 
 This is a remarkably trivial package that makes simply HTML-based presentations from
 a set up source files written using Textile. It's designed to help when creating
-slides that contain lots of code, as it allows code to be embedded from external source files. 
+slides that contain lots of code, as it allows code to be embedded from external source files.
 This means that the code that you embed can come from running (and tested) programs.
 
 The code in the resulting slides is syntax highlighted, and is hyperlinked to the original

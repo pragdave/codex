@@ -6,7 +6,7 @@ module Codex
   module Rake
     class CodexTask < ::Rake::TaskLib
       attr_accessor :name
-      
+
       # Directory of the source content. Defaults to 'content'
       attr_accessor :content_dir
 
@@ -24,15 +24,15 @@ module Codex
         yield self if block_given?
         define
       end
-      
+
       def content_path
         File.join(*[Codex.root, content_dir].compact)
       end
-      
+
       def output_path
         File.join(*[Codex.root, output_dir].compact)
       end
-      
+
       def contents
         Dir.chdir(content_path) do
           filelist = FileList["*"]
@@ -44,7 +44,7 @@ module Codex
       def define
         @output = []
         pressie = Codex::Pressie.new(metadata)
-        
+
         contents.each do |file|
           input_file = File.join(content_dir, file)
           output_file = File.join(output_dir, file.ext('.html'))
@@ -56,17 +56,17 @@ module Codex
         end
 
         task :default => name
-        
+
         desc "Build all the content"
         task name => @output
-        
+
         # FIXME: clean up all this
         all_html   = File.join(output_dir, "all.html")
 
         task :remove_tmp do
           FileUtils.rm_rf("tmp")
         end
-        
+
         desc "Build all based on the contents of content/table_of_contents.textile"
         task :all => [ 'tmp', output_dir, all_html, :remove_tmp ]
 
@@ -74,7 +74,7 @@ module Codex
         task :clean => "remove_tmp" do
           FileUtils.rm_rf output_path
         end
-        
+
         task all_html => 'tmp/all.textile' do
           pressie.process('tmp/all.textile', all_html)
         end
@@ -87,7 +87,7 @@ module Codex
 
         directory output_dir
       end
-    
+
     end
   end
 end
