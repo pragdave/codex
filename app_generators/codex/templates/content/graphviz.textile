@@ -14,7 +14,7 @@ graph test123 {
 :endinlinegraphviz
 :end
 
-:inlinegraphviz 
+:inlinegraphviz
 graph test123 {
 	a -- b -- c;
 	a -- {x y};

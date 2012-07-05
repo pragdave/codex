@@ -2,7 +2,7 @@ require 'ritex'
 
 class RitexFilter < Codex::Filter
   tag :webtex
-  
+
   # Expect something like
   # :webtex \alpha\beta\gamma
   def filter_single(text,args)

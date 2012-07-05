@@ -1,6 +1,6 @@
 require 'singleton'
 
-module Codex 
+module Codex
   # Filter is an abstract class for user defined filters.
   # It lets them declare the tag they wish to use.
   # When declaring a tag, it also registers with Filters.
@@ -17,11 +17,11 @@ module Codex
   class Filters
     include Singleton
     attr_accessor :filter_file_tags, :filter_inline_tags, :filter_inline_end_tags, :log
-    
+
     def []=(idx,val)
       @filters[idx] = val
     end
-    
+
     def [](idx)
       @filters[idx]
     end
@@ -60,13 +60,13 @@ module Codex
 
       result.join("\n")
     end
-    
+
     # Creates instance and loads all the user-defined filters in the generated filter/ subdirectory
     private
     def initialize
       @filters = {}
     end
-    
+
     # Create regular expression to match single tags (tags with no end tag)
     def single_tag
       @single_tag_regex ||= tag_regexp
@@ -76,7 +76,7 @@ module Codex
     def inline_tag
       @inline_tag_regex ||= tag_regexp("inline")
     end
-    
+
     # Does the actually work of creating matcher regular expressions
     def tag_regexp(prefix = "")
       Regexp.new("^:#{prefix}(" + @filters.keys.join('|') + ")(.*)")
@@ -84,13 +84,13 @@ module Codex
   end
 end
 
-# Loads all the filters:    
+# Loads all the filters:
 # If a filter fails to load, simply ignore it (it may be a missing local gem, such
 # as ritex). This means that folks who write filters must ensure that their source
 # throws an exception should it fail to find all its dependencies
 
 Dir.glob([
-    File.join(File.dirname(__FILE__), 'filters/*.rb'), 
+    File.join(File.dirname(__FILE__), 'filters/*.rb'),
     File.join(APP_ROOT, 'filters/*.rb')
     ]) do |filter|
   begin

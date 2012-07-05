@@ -1,6 +1,6 @@
 h1. An Example
 
-This comes from the "Advanced Ruby Course":http://pragmaticstudio.com/ruby/ 
+This comes from the "Advanced Ruby Course":http://pragmaticstudio.com/ruby/
 
 h1. Continuation
 
@@ -9,7 +9,7 @@ h1. Continuation
 </div>
 
 <div style="width: 50%">
-  
+
 * Construct using @callcc@
 ** pass it a block
 ** block receives @Continuation@ object
@@ -36,7 +36,7 @@ h1. But...
 
 
 
-h1. Implementing throw...catch 
+h1. Implementing throw...catch
 
 Let's try to implement throw and catch so that the following works as expected:
 

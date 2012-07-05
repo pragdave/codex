@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://codex.rubyforge.org}
   s.post_install_message = %q{
 To create new presentations:
-	
+
 		codex path/to/presentation/folder
-		
+
 }
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
@@ -42,5 +42,5 @@ To create new presentations:
   end
 
   s.add_dependency("rubigen")
-  
+
 end

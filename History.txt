@@ -17,12 +17,12 @@
 	* The division of the slides by h1. now implemented in a post processor (brandon)
 	* Functionality defined in lib/codex/post_processor.rb
 * Now using the Monaco fixed width font to display code (bernardo)
-* Fixed a few other tiny show stopper bugs and makes everything ready for a new tested gem release (bernardo) 
+* Fixed a few other tiny show stopper bugs and makes everything ready for a new tested gem release (bernardo)
 
 == 1.0.3 2008-05-22
 
 * Support for user defined filters
-	* The functionality is in added file lib/codex/filters/filter.rb 
+	* The functionality is in added file lib/codex/filters/filter.rb
 * Included WebTeX filter
 	* Added ritex >= 0.1 as dependency
 * Syntax highlighter is a filter now

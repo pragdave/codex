@@ -12,11 +12,11 @@ module Codex
           c.metadata    = "#{APP_ROOT}/config/metadata.yml"
         end
       end
-      
+
       def test_name_defaults_to_codex
         assert_equal :codex, @task.name
       end
-      
+
       def test_content_dir_defaults_to_content
         assert_equal 'content', @task.content_dir
       end

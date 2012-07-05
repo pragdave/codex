@@ -8,7 +8,7 @@ div.slide code {
     font-size: 85%;
     color:  #228;
 }
-    
+
 div.dp-highlighter
 {
 	font-family: "Monaco", "Consolas", "Courier New", Courier, mono;
@@ -18,10 +18,10 @@ div.dp-highlighter
 /*	margin: 18px 0px 18px 0px; */
 	padding-top: 1px; /* adds a little border on top when controls are hidden */
 	margin-bottom: 0px;
- 	border: 2px solid; 
+ 	border: 2px solid;
 }
 
-div.dp-highlighter ol 
+div.dp-highlighter ol
 {
 	margin-top: 1px;
 	margin-bottom: 10px;
@@ -30,16 +30,16 @@ div.dp-highlighter ol
 
 div.dp-highlighter ol li
 {
-  background-color: white;	
+  background-color: white;
 }
 
 div.dp-highlighter .keyword {
   font-weight: normal;
-  color: #33b;	
+  color: #33b;
 }
 
 div.dp-highlighter .variable {
-  font-weight: normal;	
+  font-weight: normal;
 }
 
 div.dp-highlighter .string {
@@ -71,7 +71,7 @@ div.slide th {
   background: #337;
   color:      white;
   font-weight: bold;
-  padding:    0.2em 0em 0.2em 0em;    
+  padding:    0.2em 0em 0.2em 0em;
 }
 
 
@@ -95,7 +95,7 @@ div#footer {
 
 div#footer h2 {
   font-weight: normal;
-  font-size:  60%;	
+  font-size:  60%;
 }
 
 div.slide h1 {
@@ -184,7 +184,7 @@ div.code-tiny li {
 }
 
 div.code-supertiny {
-   font-size: 33% !important;	
+   font-size: 33% !important;
    line-height: 2em !important;
 }
 
